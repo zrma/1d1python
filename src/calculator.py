@@ -12,3 +12,7 @@ def parse(s: str) -> tuple:
             val1, val2 = val2, 0
 
     return op, val1, val2
+
+
+def eval(t: tuple) -> (int or float):
+    pass

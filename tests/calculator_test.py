@@ -1,6 +1,6 @@
 import unittest
 
-from src.calculator import parse
+from src.calculator import parse, eval
 
 
 class TestCalculator(unittest.TestCase):
@@ -12,3 +12,9 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(parse("1 * 3"), ("*", 1, 3))
         self.assertEqual(parse("1/ 3"), ("/", 1, 3))
         self.assertEqual(parse("1-3"), ("-", 1, 3), "공백이 없을 경우에도 파싱 성공한다.")
+
+    def test_eval(self):
+        self.assertEqual(eval(("+", 1, 2)), 3)
+        self.assertEqual(eval(("-", 1, 2)), -1)
+        self.assertEqual(eval(("*", 1, 2)), 2)
+        self.assertEqual(eval(("/", 1, 2)), 0.5)
