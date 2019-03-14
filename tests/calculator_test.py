@@ -18,3 +18,4 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(eval(("-", 1, 2)), -1)
         self.assertEqual(eval(("*", 1, 2)), 2)
         self.assertEqual(eval(("/", 1, 2)), 0.5)
+        self.assertRaises(ZeroDivisionError, eval(("/", 1, 0)))
