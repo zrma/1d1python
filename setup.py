@@ -43,6 +43,8 @@ setup(
             'mamba',
             'expects',
             'coverage',
+            'pytest',
+            'pytest-cov',
             'py',                   # via pytest
             'flake8',
             'pyflakes',             # via flake8
