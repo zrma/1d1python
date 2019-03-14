@@ -1,2 +1,3 @@
-def parse(s: str) -> list:
-    pass
+def parse(s: str) -> tuple:
+    lv, op, rv = s.split()
+    return int(lv), op, int(rv)
