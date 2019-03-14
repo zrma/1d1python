@@ -1,14 +1,14 @@
 def parse(s: str) -> tuple:
     s = s.replace(' ', '')
 
-    l_value = value = 0
+    val1 = val2 = 0
     op = ''
     for c in s:
         if c.isdigit():
-            value *= 10
-            value += int(c)
+            val2 *= 10
+            val2 += int(c)
         else:
             op = c
-            l_value, value = value, 0
+            val1, val2 = val2, 0
 
-    return l_value, op, value
+    return op, val1, val2
