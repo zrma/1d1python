@@ -1,6 +1,6 @@
 import unittest
 
-from src.calculator import parse, calc
+from calculator.function import parse, calc
 
 
 class TestCalculator(unittest.TestCase):
