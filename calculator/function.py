@@ -1,26 +1,14 @@
-def parse(s: str) -> tuple:
+from typing import Union, List
+
+
+def add_bracket(s: str) -> str:
     s = s.replace(' ', '')
-
-    val1 = val2 = 0
-    op = ''
-    for c in s:
-        if c.isdigit():
-            val2 *= 10
-            val2 += int(c)
-        else:
-            op = c
-            val1, val2 = val2, 0
-
-    return op, val1, val2
+    return s
 
 
-def calc(t: tuple) -> (int or float):
-    op_map = {
-        "+": lambda x, y: x + y,
-        "-": lambda x, y: x - y,
-        "*": lambda x, y: x * y,
-        "/": lambda x, y: x / y,
-    }
+def calc(s: str) -> Union[int, float]:
+    l: List[str] = list()
+    result: Union[int, float] = 0
 
-    op, val1, val2 = t
-    return op_map[op](val1, val2)
+    s = add_bracket(s)
+    return result
