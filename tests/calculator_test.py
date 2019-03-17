@@ -68,6 +68,7 @@ class TestCalculator(unittest.TestCase):
             TestCase_Parse(data="3 + 5", expected=[3, "+", 5], desc="공백 처리"),
             TestCase_Parse(data="1", expected=[1], desc="단항 처리"),
             TestCase_Parse(data="0", expected=[0], desc="단항 처리(0)"),
+            TestCase_Parse(data="123", expected=[123], desc="여러 자릿수의 단항 처리"),
             TestCase_Parse(data="-1", expected=["-", 1], desc="음수 처리"),
             TestCase_Parse(data="(-1)", expected=["(", "-", 1, ")"],
                            desc="괄호 안 음수 처리"),
@@ -81,14 +82,14 @@ class TestCalculator(unittest.TestCase):
                            desc="중간 0 누락 안 함"),
             TestCase_Parse(data="1/2+3", expected=[1, "/", 2, "+", 3],
                            desc="사칙 연산 순서 보장"),
-            TestCase_Parse(data="2 + 3 * 5", expected=[2, "+", 3, "*", 5],
+            TestCase_Parse(data="20 + 3 * 5", expected=[20, "+", 3, "*", 5],
                            desc="사칙 연산 순서 보장(높은 순위 연산자가 뒤쪽에 있는 경우)"),
             TestCase_Parse(data="1/(2+3)*5",
                            expected=[1, "/", "(", 2, "+", 3, ")", "*", 5],
                            desc="복잡한 수식"),
-            TestCase_Parse(data="1/(5+3*2)+6",
+            TestCase_Parse(data="1/(5+3*20)+6",
                            expected=[
-                               1, "/", "(", 5, "+", 3, "*", 2, ")", "+", 6
+                               1, "/", "(", 5, "+", 3, "*", 20, ")", "+", 6
                            ],
                            desc="복잡한 내부 수식"),
         ]
