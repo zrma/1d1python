@@ -42,6 +42,7 @@ setup(
         'tests': [
             'mamba',
             'expects',
+            'coveralls',
             'coverage',
             'pytest',
             'pytest-cov',
