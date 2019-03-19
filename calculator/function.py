@@ -1,11 +1,6 @@
 from typing import Union, List, Optional
 
 
-def add_bracket(s: str) -> str:
-    s = s.replace(' ', '')
-    return s
-
-
 def calc(_: str) -> Union[int, float]:
     # l: List[str] = list()
     result: Union[int, float] = 0
