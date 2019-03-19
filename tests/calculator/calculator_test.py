@@ -2,10 +2,10 @@ import unittest
 from collections import namedtuple
 from typing import List
 
-from calculator.function import calc, parse
+from calculator.function import calc, parse, get_inner_bracket
 
 TestCase_Calc = namedtuple("TestCase_Calc", "data desc")
-TestCase_Bracket = namedtuple("TestCase_Bracket", "data expected desc")
+TestCase_InnerBracket = namedtuple("TestCase_Pop", "data expected desc")
 TestCase_Parse = namedtuple("TestCase_Parse", "data expected desc")
 
 
@@ -34,6 +34,24 @@ class TestCalculator(unittest.TestCase):
             self.assertEqual(calc(case.data), eval(case.data), case.desc)
 
         self.assertRaises(ZeroDivisionError, calc, "1/0")
+
+    def test_get_inner_bracket(self):
+        cases: List[TestCase_InnerBracket] = [
+            TestCase_InnerBracket(data=[1, "+", 2], expected=[1, "+", 2],
+                                  desc="괄호가 없는 수식"),
+            TestCase_InnerBracket(data=[1, "+", "(", 3, "+", 5, ")", "-", 2],
+                                  expected=[3, "+", 5],
+                                  desc="괄호가 한 쌍 있는 수식"),
+            TestCase_InnerBracket(data=[4, "*", "(", 1, "+",
+                                        "(", 3, "+", 5, ")",
+                                        "-", 2, ")", "/", 3],
+                                  expected=[3, "+", 5], desc=""),
+        ]
+
+        for case in cases:
+            self.assertEqual(get_inner_bracket(case.data),
+                             case.expected,
+                             case.desc)
 
     def test_parse(self):
         cases: List[TestCase_Parse] = [

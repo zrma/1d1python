@@ -2,9 +2,24 @@ from typing import Union, List, Optional
 
 
 def calc(_: str) -> Union[int, float]:
-    # l: List[str] = list()
+    # _: List[str] = parse(s)
+
     result: Union[int, float] = 0
     return result
+
+
+def get_inner_bracket(l: List[Union[str, int]]) -> List[Union[str, int]]:
+    start = 0
+    end = len(l)
+    if ")" in l:
+        end = l.index(")")
+        start = 0
+        for i, c in enumerate(l[0:end]):
+            if c is "(":
+                start = i + 1
+        return l[start:end]
+
+    return l[start:end]
 
 
 def parse(s: str) -> List[str]:
