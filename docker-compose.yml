@@ -1,0 +1,10 @@
+version: '3.2'
+
+services:
+  py-dev:
+    restart: always
+    container_name: py-dev
+    build:
+      context: .
+      dockerfile: ./docker/dev/Dockerfile
+
