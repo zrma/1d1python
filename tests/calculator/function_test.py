@@ -2,14 +2,14 @@ import unittest
 from collections import namedtuple
 from typing import List
 
-from calculator.function import calc, parse, get_inner_bracket
+from src.calculator.function import calc, parse, get_inner_bracket
 
 TestCase_Calc = namedtuple("TestCase_Calc", "data desc")
 TestCase_InnerBracket = namedtuple("TestCase_Pop", "data expected desc")
 TestCase_Parse = namedtuple("TestCase_Parse", "data expected desc")
 
 
-class TestCalculator(unittest.TestCase):
+class TestFunction(unittest.TestCase):
     def setUp(self):
         pass
 
