@@ -15,7 +15,7 @@ def get_inner_bracket(l: List[Union[str, int]]) -> List[Union[str, int]]:
         end = l.index(")")
         start = 0
         for i, c in enumerate(l[0:end]):
-            if c is "(":
+            if c == "(":
                 start = i + 1
         return l[start:end]
 
