@@ -74,7 +74,7 @@ install: clean
 
 cover:
 	$(VENV) ;\
-	coverage run --source=calculator setup.py test
+	coverage run --source=src setup.py test
 	coverage xml -i
 	COVERALLS_TOKEN=${COVERALLS_TOKEN} coveralls --service=travis-ci
 
