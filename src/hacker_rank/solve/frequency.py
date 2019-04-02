@@ -1,5 +1,11 @@
-def process_normal(arr, tokens, repeat, repeat_num):
-    last_token = None
+from typing import List
+
+
+def process_normal(arr: List[int],
+                   tokens: List[str],
+                   repeat: bool,
+                   repeat_num: int) -> None:
+    last_token: str = str()
 
     # 작은 수 일괄 카운트
     for token in tokens:
@@ -11,8 +17,11 @@ def process_normal(arr, tokens, repeat, repeat_num):
         arr[int(last_token) - 1] += repeat_num
 
 
-def process_big_number(results, token_by_paren, repeat, repeat_num):
-    tokens_by_sharp = token_by_paren.split('#')
+def process_big_number(results: List[int],
+                       token_by_paren: str,
+                       repeat: bool,
+                       repeat_num: int) -> None:
+    tokens_by_sharp: List[str] = token_by_paren.split('#')
 
     # 마지막 토큰이 큰 수(#)인가?
     is_big_last_token = tokens_by_sharp[len(tokens_by_sharp) - 1] == ''
@@ -49,7 +58,7 @@ def process_big_number(results, token_by_paren, repeat, repeat_num):
         process_normal(results, last_token, repeat, repeat_num)
 
 
-def parse_token(results, token_by_paren):
+def parse_token(results: List[int], token_by_paren: str) -> None:
     # 반복 처리 해야 할 경우 맨 마지막 토큰을 해당 횟수만큼 반복하자
     repeat = '(' in token_by_paren
     repeat_num = 0
@@ -69,8 +78,8 @@ def parse_token(results, token_by_paren):
         process_normal(results, token_by_paren, repeat, repeat_num)
 
 
-def frequency(s):
-    results = [0 for _ in range(26)]
+def frequency(s: str) -> List[int]:
+    results: List[int] = [0 for _ in range(26)]
 
     tokens_by_paren = s.split(')')
     if '' in tokens_by_paren:
