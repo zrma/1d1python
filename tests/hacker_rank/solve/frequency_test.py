@@ -29,6 +29,10 @@ class TestFrequency(unittest.TestCase):
                      expected='0 0 0 0 0 0 0 0 0 0 0 0 0 '
                               '0 0 0 0 0 0 0 0 0 5 1 1 1',
                      desc="복잡한 형태의 # + 괄호 중복 복합 처리 실패"),
+            TestCase(input="26#24#12",
+                     expected="1 1 0 0 0 0 0 0 0 0 0 0 0 "
+                              "0 0 0 0 0 0 0 0 0 0 1 0 1",
+                     desc="# 포함하지만 큰 수로 끝나지 않는 경우의 처리 실패"),
         ]
 
         for case in cases:
