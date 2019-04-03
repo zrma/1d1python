@@ -37,7 +37,7 @@ class TestFrequency(unittest.TestCase):
 
         for case in cases:
             self.assertEqual(
-                ' '.join([str(s) for s in frequency(case.input)]),
                 case.expected,
+                ' '.join([str(s) for s in frequency(case.input)]),
                 case.desc
             )
