@@ -31,4 +31,4 @@ class TestDeleteOdd(unittest.TestCase):
             res = delete_odd(list_head.head)
             actual = print_singly_linked_list(res)
 
-            self.assertEqual(actual, case.expected)
+            self.assertEqual(case.expected, actual)
