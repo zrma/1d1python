@@ -1,9 +1,9 @@
 version: '3.2'
 
 services:
-  py-dev:
+  tdd-dev:
     restart: always
-    container_name: py-dev
+    container_name: tdd-dev
     build:
       context: .
       dockerfile: ./docker/dev/Dockerfile
