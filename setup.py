@@ -45,6 +45,7 @@ setup(
             'coveralls',
             'coverage',
             'pytest',
+            'pytest-runner',
             'pytest-cov',
             'py',                   # via pytest
             'flake8',
