@@ -45,6 +45,7 @@ setup(
             'coveralls',
             'coverage',
             'pytest',
+            'pytest-bdd',
             'pytest-runner',
             'pytest-cov',
             'py',                   # via pytest
