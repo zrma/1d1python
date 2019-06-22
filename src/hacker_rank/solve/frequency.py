@@ -49,8 +49,7 @@ def process_big_number(results: List[int],
 
         results[int(last_big_token) - 1] += 1
         if repeat:
-            assert last_big_token, \
-                'Repeat is True, but Last Token is None'
+            assert last_big_token, 'Repeat is True, but Last Token is None'
             results[int(last_big_token) - 1] += repeat_num
 
     # 아니라면 일반적인 처리
