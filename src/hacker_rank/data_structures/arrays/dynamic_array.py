@@ -14,7 +14,7 @@ def dynamic_array(n: int, queries: Sequence[Sequence[int]]) -> Sequence[int]:
         else:
             seq_idx = (x ^ last_answer) % n
             seq = seq_list[seq_idx]
-            elem_idx = 0 if not seq else y % len(seq)
+            elem_idx = y % len(seq)
             last_answer = seq[elem_idx]  # type: int
             result.append(last_answer)
 
