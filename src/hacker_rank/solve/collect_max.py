@@ -1,7 +1,8 @@
 from itertools import product, combinations
+from typing import Sequence
 
 
-def mul_mat(mat1, mat2):
+def mul_mat(mat1: Sequence[Sequence[int]], mat2: Sequence[Sequence[int]]) -> int:
     row = len(mat1)
     col = len(mat1[0])
 
@@ -15,7 +16,8 @@ def mul_mat(mat1, mat2):
     return total
 
 
-def build_mat(down_way, up_way, row, col):
+def build_mat(down_way: Sequence[bool], up_way: Sequence[bool],
+              row: int, col: int):
     mat = [[0 for _ in range(row)] for _ in range(col)]
 
     mat[0][0] = 1
@@ -38,7 +40,7 @@ def build_mat(down_way, up_way, row, col):
     return mat
 
 
-def collect_max(mat):
+def collect_max(mat: Sequence[Sequence[int]]):
     row = len(mat)
     col = len(mat[0])
 
