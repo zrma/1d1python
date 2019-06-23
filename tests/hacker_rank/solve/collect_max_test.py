@@ -2,24 +2,24 @@ from collections import namedtuple
 
 from src.hacker_rank.solve.collect_max import collect_max, mul_mat
 
-Case = namedtuple("TestCase", "input expected")
+Case = namedtuple("TestCase", "data expected")
 
 
 def test_collect_max():
     cases = (
-        Case(input=(
+        Case(data=(
             (0, 1, -1),
             (1, 0, -1),
             (1, 1, 1),
         ),
             expected=5),
-        Case(input=(
+        Case(data=(
             (0, 1, 1),
             (1, 0, 1),
             (1, 1, 1)
         ),
             expected=7),
-        Case(input=(
+        Case(data=(
             (0, 1, 1),
             (1, 0, -1),
             (1, 1, -1)
@@ -28,13 +28,13 @@ def test_collect_max():
     )
 
     for case in cases:
-        actual = collect_max(case.input)
+        actual = collect_max(case.data)
         assert case.expected == actual
 
 
 def test_mul_mat():
     cases = (
-        Case(input=(
+        Case(data=(
             (
                 (1, 0, 1),
                 (1, 1, 1),
@@ -45,7 +45,7 @@ def test_mul_mat():
             )
         ),
             expected=8),
-        Case(input=(
+        Case(data=(
             (
                 (1, 0, 0),
                 (0, 1, 0),
@@ -57,7 +57,7 @@ def test_mul_mat():
             )
         ),
             expected=6),
-        Case(input=(
+        Case(data=(
             (
                 (1, 1),
                 (0, 1),
@@ -71,5 +71,5 @@ def test_mul_mat():
     )
 
     for case in cases:
-        actual = mul_mat(*case.input)
+        actual = mul_mat(*case.data)
         assert case.expected == actual
