@@ -1,4 +1,5 @@
 from collections import namedtuple
+from typing import Sequence
 
 from src.hacker_rank.interview_preparation_kit.array.array_manipulation import array_manipulation
 
@@ -41,7 +42,7 @@ def test_array_manipulation():
     )
 
     for case in cases:
-        n, queries, expected = case
+        n, queries, expected = case  # type: int, Sequence[Sequence[int]], int
 
         actual = array_manipulation(n, queries)
         assert case.expected == actual

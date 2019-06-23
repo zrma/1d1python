@@ -4,7 +4,7 @@ from typing import List
 
 
 def process_normal(arr: List[int],
-                   tokens: List[str],
+                   tokens: str,
                    repeat: bool,
                    repeat_num: int) -> None:
     last_token: str = str()
@@ -65,8 +65,8 @@ def parse_token(results: List[int], token_by_paren: str) -> None:
     repeat_num = 0
 
     if repeat:
-        token_by_paren, repeat_num = token_by_paren.split('(')
-        repeat_num = int(repeat_num) - 1
+        token_by_paren, repeat_num_str = token_by_paren.split('(')  # type: str, str
+        repeat_num = int(repeat_num_str) - 1
 
     # 큰 수(#)가 포함 된 경우
     exist_big = '#' in token_by_paren

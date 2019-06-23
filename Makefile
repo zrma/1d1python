@@ -55,6 +55,7 @@ lint:
 test:
 	$(VENV) ;\
 	python setup.py test $(TEST_ARGS)
+	make clean
 
 jenkins: test
 
