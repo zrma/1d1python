@@ -8,12 +8,12 @@ Case = namedtuple("TestCase", "input expected")
 
 
 def test_frequency():
-    cases = [
-        Case(input=[2, 1, 3, 4, 6],
+    cases = (
+        Case(input=(2, 1, 3, 4, 6),
              expected="2 4 6"),
-        Case(input=[1, 3, 2, 7, 10],
+        Case(input=(1, 3, 2, 7, 10),
              expected="2 10"),
-    ]
+    )
 
     for case in cases:
         list_head = SinglyLinkedList()
