@@ -35,7 +35,13 @@ def test_hourglass_sum():
             (1, 2), (3, 4), (5, 6), (7, 8),
         ),
             expected=0,
-            desc="",
+            desc="비정상적인 데이터 1",
+        ),
+        Case(data=(
+            (1, 2), (3, 4),
+        ),
+            expected=0,
+            desc="비정상적인 데이터 2",
         ),
     )
 
