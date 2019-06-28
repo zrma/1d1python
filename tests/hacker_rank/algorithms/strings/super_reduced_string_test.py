@@ -18,6 +18,8 @@ def test_frequency():
              expected="abab"),
         Case(data="abccba",  # noqa
              expected="Empty String"),
+        Case(data="",
+             expected="Empty String"),
     )
 
     for case in cases:
