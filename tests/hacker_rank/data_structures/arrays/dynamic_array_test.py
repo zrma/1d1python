@@ -22,4 +22,4 @@ def test_frequency():
 
     for case in cases:
         n, queries, expected = case  # type: int, Sequence[Sequence[int]], int
-        assert expected == dynamic_array(n, queries)
+        assert dynamic_array(n, queries) == expected

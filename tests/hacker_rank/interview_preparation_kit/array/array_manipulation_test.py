@@ -45,4 +45,4 @@ def test_array_manipulation():
         n, queries, expected = case  # type: int, Sequence[Sequence[int]], int
 
         actual = array_manipulation(n, queries)
-        assert case.expected == actual
+        assert actual == case.expected
