@@ -49,4 +49,4 @@ def test_hourglass_sum():
         data, expected, desc = case  # type: Sequence[Sequence[int]], int, str
 
         actual = hourglass_sum(data)
-        assert case.expected == actual, desc
+        assert actual == case.expected, desc

@@ -29,7 +29,7 @@ def test_collect_max():
 
     for case in cases:
         actual = collect_max(case.data)
-        assert case.expected == actual
+        assert actual == case.expected
 
 
 def test_mul_mat():
@@ -72,4 +72,4 @@ def test_mul_mat():
 
     for case in cases:
         actual = mul_mat(*case.data)
-        assert case.expected == actual
+        assert actual == case.expected
