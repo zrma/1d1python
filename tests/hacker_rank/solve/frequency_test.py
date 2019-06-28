@@ -25,4 +25,4 @@ def test_frequency():
     )
 
     for case in cases:
-        assert case.expected == ' '.join([str(s) for s in frequency(case.data)]), case.desc
+        assert ' '.join([str(s) for s in frequency(case.data)]) == case.expected, case.desc

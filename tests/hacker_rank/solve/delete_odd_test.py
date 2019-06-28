@@ -25,4 +25,4 @@ def test_frequency():
         res = delete_odd(list_head.head)
         actual = print_singly_linked_list(res)
 
-        assert case.expected == actual
+        assert actual == case.expected
