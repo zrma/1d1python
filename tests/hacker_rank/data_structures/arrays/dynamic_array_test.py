@@ -6,6 +6,7 @@ from src.hacker_rank.data_structures.arrays.dynamic_array import dynamic_array
 Case = namedtuple("TestCase", "n queries expected")
 
 
+# https://www.hackerrank.com/challenges/2d-array/problem
 def test_frequency():
     cases = (
         Case(n=2,
