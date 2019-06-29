@@ -2,7 +2,7 @@ def if_else(n: int) -> None:
     weird = "Weird"
     not_weird = "Not Weird"
 
-    if n % 2 is not 0:
+    if n % 2 != 0:
         print(weird)
         return
 
