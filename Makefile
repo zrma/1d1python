@@ -78,4 +78,5 @@ cover:
 	coverage run --source=src setup.py test
 	coverage xml -i
 	COVERALLS_TOKEN=${COVERALLS_TOKEN} coveralls --service=travis-ci
-
+	pytest --cov=src tests/
+	codecov
