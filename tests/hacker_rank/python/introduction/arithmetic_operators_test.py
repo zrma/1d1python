@@ -1,6 +1,6 @@
 from random import randint
 
-from src.hacker_rank.python.arithmetic_operators import arithmetic_operators
+from src.hacker_rank.python.introduction.arithmetic_operators import arithmetic_operators
 
 
 # https://www.hackerrank.com/challenges/python-arithmetic-operators/problem
