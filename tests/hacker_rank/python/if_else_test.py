@@ -7,7 +7,7 @@ Case = namedtuple("TestCase", "n expected desc")
 
 # https://www.hackerrank.com/challenges/py-if-else/problem
 # noinspection SpellCheckingInspection
-def test_print_test(capsys):  # noqa
+def test_if_else(capsys):  # noqa
     cases = (
         Case(n=1, expected="Weird", desc="홀수"),
         Case(n=3, expected="Weird", desc="홀수"),
