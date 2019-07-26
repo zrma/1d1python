@@ -1,6 +1,6 @@
 from random import randint
 
-from src.hacker_rank.python.division import division
+from src.hacker_rank.python.introduction.division import division
 
 
 # https://www.hackerrank.com/challenges/python-division/problem

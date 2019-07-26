@@ -1,4 +1,4 @@
-from src.hacker_rank.python.hello_world import hello_world
+from src.hacker_rank.python.introduction.hello_world import hello_world
 
 
 # https://www.hackerrank.com/challenges/py-hello-world/problem

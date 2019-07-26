@@ -1,4 +1,4 @@
-from src.hacker_rank.python.loops import loops
+from src.hacker_rank.python.introduction.loops import loops
 
 
 # https://www.hackerrank.com/challenges/python-loops/problem

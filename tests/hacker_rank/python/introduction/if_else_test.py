@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-from src.hacker_rank.python.if_else import if_else
+from src.hacker_rank.python.introduction.if_else import if_else
 
 Case = namedtuple("TestCase", "n expected desc")
 
