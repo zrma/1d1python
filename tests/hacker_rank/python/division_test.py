@@ -5,7 +5,7 @@ from src.hacker_rank.python.division import division
 
 # https://www.hackerrank.com/challenges/python-division/problem
 # noinspection SpellCheckingInspection
-def test_print_test(capsys):  # noqa
+def test_division(capsys):  # noqa
     for _ in range(100):
         a = randint(1, 1000000)
         b = randint(1, 1000000)
