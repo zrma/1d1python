@@ -19,3 +19,14 @@ class TestBasicDataTypes:
                 [1, 2, 2], [2, 0, 1], [2, 0, 2],
                 [2, 1, 0], [2, 1, 1], [2, 1, 2],
                 [2, 2, 0], [2, 2, 1], [2, 2, 2]]
+
+    # https://www.hackerrank.com/challenges/nested-list/problem
+    def test_nested_lists(self):
+        # noinspection SpellCheckingInspection
+        assert nested_lists([
+            "Harry", 37.21, "Berry", 37.21, "Tina", 37.2, "Akriti", 41, "Harsh", 39,
+        ]) == ["Berry", "Harry"]
+        # noinspection SpellCheckingInspection
+        assert nested_lists([
+            "Rachel", - 50, "Mawer", - 50, "Sheen", - 50, "Shaheen", 51,
+        ]) == ["Shaheen"]
