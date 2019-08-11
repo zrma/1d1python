@@ -30,3 +30,18 @@ class TestBasicDataTypes:
         assert nested_lists([
             "Rachel", - 50, "Mawer", - 50, "Sheen", - 50, "Shaheen", 51,
         ]) == ["Shaheen"]
+
+    # https://www.hackerrank.com/challenges/finding-the-percentage/problem
+    def test_finding_the_percentage(self):
+        # noinspection SpellCheckingInspection
+        assert finding_the_percentage("Malika", {
+            "Krishna": [67, 68, 69],
+            "Arjun": [70, 98, 63],
+            "Malika": [52, 56, 60],
+        }) == "56.00"
+        # noinspection SpellCheckingInspection
+        assert finding_the_percentage("Malika", {}) == "0.00"
+        # noinspection SpellCheckingInspection
+        assert finding_the_percentage("Malika", {
+            "Malika": [],
+        }) == "0.00"

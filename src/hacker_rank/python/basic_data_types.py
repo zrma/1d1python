@@ -1,5 +1,5 @@
 from itertools import product
-from typing import Sequence, Union
+from typing import Sequence, Union, Dict
 
 
 def find_the_runner_up_score(arr: Sequence[int]) -> int:
@@ -29,3 +29,14 @@ def nested_lists(arr: Sequence[Union[int, str]]) -> Sequence[str]:
 
     get_bottom(result[0][1])
     return sorted(get_bottom(result[0][1]))
+
+
+def finding_the_percentage(query_name: str, student_marks: Dict[str, Sequence[float]]) -> str:
+    avg: float = 0
+    try:
+        arr = student_marks[query_name]
+        avg = sum(arr) / len(arr)
+    except (KeyError, ZeroDivisionError):
+        pass
+
+    return format(avg, '.2f')
