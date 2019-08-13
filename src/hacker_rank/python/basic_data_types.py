@@ -62,3 +62,7 @@ def lists(commands: Sequence[Sequence[Union[str]]]) -> Sequence[Sequence[int]]:
         operators[op_code](list(map(lambda x: int(x), op_land)))
 
     return result
+
+
+def tuples(arr: Sequence[int]) -> int:
+    return hash(tuple(arr))
