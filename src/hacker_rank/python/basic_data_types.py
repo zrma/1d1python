@@ -1,5 +1,6 @@
 from itertools import product
-from typing import Sequence, Union, Dict
+from typing import Sequence, Union, Dict, List
+from copy import deepcopy
 
 
 def find_the_runner_up_score(arr: Sequence[int]) -> int:
@@ -40,3 +41,24 @@ def finding_the_percentage(query_name: str, student_marks: Dict[str, Sequence[fl
         pass
 
     return format(avg, '.2f')
+
+
+def lists(commands: Sequence[Sequence[Union[str]]]) -> Sequence[Sequence[int]]:
+    stack: List[int] = []
+    result: List[Sequence[int]] = []
+
+    operators = {
+        "insert": lambda x: stack.insert(x[0], x[1]),
+        "remove": lambda x: stack.remove(x[0]),
+        "append": lambda x: stack.append(x[0]),
+        "sort": lambda _: stack.sort(),
+        "pop": lambda _: stack.pop(-1),
+        "reverse": lambda _: stack.reverse(),
+        "print": lambda _: result.append(deepcopy(stack))
+    }
+
+    for cmd in commands:
+        op_code, *op_land = cmd
+        operators[op_code](list(map(lambda x: int(x), op_land)))
+
+    return result
