@@ -99,3 +99,7 @@ class TestBasicDataTypes:
                [5, 3, 66, 7, 12, 67, 2, 21, 75, 87, 9, 8, 44, 10, 6, 44, 30, 75, 48, 1],
                [1, 2, 3, 5, 6, 7, 8, 9, 10, 12, 21, 30, 44, 44, 48, 66, 67, 75, 75, 87],
                [1, 3, 5, 6, 7, 8, 9, 10, 12, 21, 30, 44, 44, 48, 66, 67, 75, 75, 87, 2, 5]]
+
+    # https://www.hackerrank.com/challenges/python-tuples/problem
+    def test_tuples(self):
+        assert tuples([1, 2]) == 3713081631934410656
