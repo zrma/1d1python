@@ -20,3 +20,8 @@ class TestStrings:
         what_s_your_name("Ross", "Taylor")
         captured = capsys.readouterr()
         assert captured.out == "Hello Ross Taylor! You just delved into python.\n"
+
+    # https://www.hackerrank.com/challenges/python-mutations/problem
+    def test_mutations(self):
+        # noinspection SpellCheckingInspection
+        assert mutations("abracadabra", 5, "k") == "abrackdabra"

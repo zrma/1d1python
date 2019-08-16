@@ -18,3 +18,7 @@ def split_and_join(s: str) -> Sequence[str]:
 
 def what_s_your_name(a: str, b: str):
     print(f"Hello {a} {b}! You just delved into python.")
+
+
+def mutations(s: str, pos: int, c: str) -> str:
+    return "".join((s[:pos], c, s[pos + 1:]))
