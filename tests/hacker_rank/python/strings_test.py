@@ -9,3 +9,7 @@ class TestStrings:
         assert swap_case("Pythonist 2") == "pYTHONIST 2"
         assert swap_case('HackerRank.com presents "Pythonist 2".') \
                == 'hACKERrANK.COM PRESENTS "pYTHONIST 2".'
+
+    # https://www.hackerrank.com/challenges/python-string-split-and-join/problem
+    def test_split_and_join(self):
+        assert split_and_join("this is a string") == "this-is-a-string"
