@@ -13,3 +13,10 @@ class TestStrings:
     # https://www.hackerrank.com/challenges/python-string-split-and-join/problem
     def test_split_and_join(self):
         assert split_and_join("this is a string") == "this-is-a-string"
+
+    # https://www.hackerrank.com/challenges/whats-your-name/problem
+    # noinspection SpellCheckingInspection
+    def test_what_s_your_name(self, capsys):  # noqa
+        what_s_your_name("Ross", "Taylor")
+        captured = capsys.readouterr()
+        assert captured.out == "Hello Ross Taylor! You just delved into python.\n"
