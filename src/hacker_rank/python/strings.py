@@ -14,3 +14,7 @@ def swap_case(s: str) -> str:
 
 def split_and_join(s: str) -> Sequence[str]:
     return s.replace(' ', '-')
+
+
+def what_s_your_name(a: str, b: str):
+    print(f"Hello {a} {b}! You just delved into python.")
