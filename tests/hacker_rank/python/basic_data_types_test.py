@@ -30,6 +30,7 @@ class TestBasicDataTypes:
         assert nested_lists([
             "Rachel", - 50, "Mawer", - 50, "Sheen", - 50, "Shaheen", 51,
         ]) == ["Shaheen"]
+        assert nested_lists([]) == []
 
     # https://www.hackerrank.com/challenges/finding-the-percentage/problem
     def test_finding_the_percentage(self):
