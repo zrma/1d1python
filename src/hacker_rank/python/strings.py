@@ -27,3 +27,11 @@ def mutations(s: str, pos: int, c: str) -> str:
 
 def count_substring(string: str, sub_string: str) -> int:
     return len(findall(f"(?={sub_string})", string))
+
+
+def validate_string(s: str):
+    print(any((x for x in s if x.isalnum())))
+    print(any((x for x in s if x.isalpha())))
+    print(any((x for x in s if x.isdigit())))
+    print(any((x for x in s if x.islower())))
+    print(any((x for x in s if x.isupper())))
