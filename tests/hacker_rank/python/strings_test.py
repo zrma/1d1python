@@ -37,3 +37,39 @@ class TestStrings:
         validate_string("qA2")
         captured = capsys.readouterr()
         assert captured.out == "True\nTrue\nTrue\nTrue\nTrue\n"
+
+    # https://www.hackerrank.com/challenges/text-alignment/problem
+    # noinspection SpellCheckingInspection
+    def test_text_alignment(self, capsys):  # noqa
+        text_alignment(5, "H")
+        captured = capsys.readouterr()
+
+        expected = """
+    H    
+   HHH   
+  HHHHH  
+ HHHHHHH 
+HHHHHHHHH
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHHHHHHHHHHHHHHHHHHHHHH   
+  HHHHHHHHHHHHHHHHHHHHHHHHH   
+  HHHHHHHHHHHHHHHHHHHHHHHHH   
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+  HHHHH               HHHHH             
+                    HHHHHHHHH 
+                     HHHHHHH  
+                      HHHHH   
+                       HHH    
+                        H     
+"""
+
+        assert captured.out == expected
