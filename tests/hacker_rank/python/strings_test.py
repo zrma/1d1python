@@ -25,3 +25,8 @@ class TestStrings:
     def test_mutations(self):
         # noinspection SpellCheckingInspection
         assert mutations("abracadabra", 5, "k") == "abrackdabra"
+
+    # https://www.hackerrank.com/challenges/find-a-string/problem
+    def test_count_substring(self):
+        # noinspection SpellCheckingInspection
+        assert count_substring("ABCDCDC", "CDC") == 2
