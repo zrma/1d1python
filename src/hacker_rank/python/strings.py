@@ -1,4 +1,4 @@
-from typing import Sequence
+from typing import Sequence, List
 from re import findall
 import textwrap
 
@@ -65,3 +65,24 @@ def text_alignment(thickness: int, c: str):
 
 def wrap(string: str, max_width: int) -> str:
     return "\n".join(textwrap.wrap(string, max_width))
+
+
+def designer_door_mat(n: int, m: int):
+    output: List[List[str]] = [["-" for _ in range(m)] for _ in range(n)]
+    output[n // 2] = list("WELCOME".center(m, "-"))
+
+    def point(pos_x: int, pos_y: int):
+        output[pos_y][pos_x - 1] = '.'
+        output[pos_y][pos_x] = '|'
+        output[pos_y][pos_x + 1] = '.'
+
+    center = m // 2
+    for y in range(n):
+        if y == n // 2:
+            continue
+        for offset in range(n // 2 - abs(n // 2 - y) + 1):
+            point(center + offset * 3, y)
+            point(center - offset * 3, y)
+
+    for row in output:
+        print(''.join(row))
