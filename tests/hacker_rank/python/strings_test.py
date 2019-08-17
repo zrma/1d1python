@@ -85,3 +85,48 @@ QRST
 UVWX
 YZ"""
         assert wrap("ABCDEFGHIJKLIMNOQRSTUVWXYZ", 4) == expected
+
+    # https://www.hackerrank.com/challenges/designer-door-mat/problem
+    # noinspection SpellCheckingInspection
+    def test_designer_door_mat(self, capsys):  # noqa
+        expected = """---------.|.---------
+------.|..|..|.------
+---.|..|..|..|..|.---
+-------WELCOME-------
+---.|..|..|..|..|.---
+------.|..|..|.------
+---------.|.---------
+"""
+        designer_door_mat(7, 21)
+        captured = capsys.readouterr()
+        assert captured.out == expected
+
+        expected = """---------------.|.---------------
+------------.|..|..|.------------
+---------.|..|..|..|..|.---------
+------.|..|..|..|..|..|..|.------
+---.|..|..|..|..|..|..|..|..|.---
+-------------WELCOME-------------
+---.|..|..|..|..|..|..|..|..|.---
+------.|..|..|..|..|..|..|.------
+---------.|..|..|..|..|.---------
+------------.|..|..|.------------
+---------------.|.---------------
+"""
+        designer_door_mat(11, 33)
+        captured = capsys.readouterr()
+        assert captured.out == expected
+
+        expected = """------------.|.------------
+---------.|..|..|.---------
+------.|..|..|..|..|.------
+---.|..|..|..|..|..|..|.---
+----------WELCOME----------
+---.|..|..|..|..|..|..|.---
+------.|..|..|..|..|.------
+---------.|..|..|.---------
+------------.|.------------
+"""
+        designer_door_mat(9, 27)
+        captured = capsys.readouterr()
+        assert captured.out == expected
