@@ -1,5 +1,6 @@
 from typing import Sequence
 from re import findall
+import textwrap
 
 
 def swap_case(s: str) -> str:
@@ -60,3 +61,7 @@ def text_alignment(thickness: int, c: str):
     for i in range(thickness):
         print(((c * (thickness - i - 1)).rjust(thickness) + c +
                (c * (thickness - i - 1)).ljust(thickness)).rjust(thickness * 6))
+
+
+def wrap(string: str, max_width: int) -> str:
+    return "\n".join(textwrap.wrap(string, max_width))

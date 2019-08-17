@@ -73,3 +73,15 @@ HHHHHHHHH
 """
 
         assert captured.out == expected
+
+    # https://www.hackerrank.com/challenges/text-wrap/problem
+    # noinspection SpellCheckingInspection
+    def test_wrap(self):
+        expected = """ABCD
+EFGH
+IJKL
+IMNO
+QRST
+UVWX
+YZ"""
+        assert wrap("ABCDEFGHIJKLIMNOQRSTUVWXYZ", 4) == expected
