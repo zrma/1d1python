@@ -1,4 +1,5 @@
 from typing import Sequence
+from re import findall
 
 
 def swap_case(s: str) -> str:
@@ -22,3 +23,7 @@ def what_s_your_name(a: str, b: str):
 
 def mutations(s: str, pos: int, c: str) -> str:
     return "".join((s[:pos], c, s[pos + 1:]))
+
+
+def count_substring(string: str, sub_string: str) -> int:
+    return len(findall(f"(?={sub_string})", string))
