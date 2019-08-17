@@ -30,3 +30,10 @@ class TestStrings:
     def test_count_substring(self):
         # noinspection SpellCheckingInspection
         assert count_substring("ABCDCDC", "CDC") == 2
+
+    # https://www.hackerrank.com/challenges/string-validators/problem
+    # noinspection SpellCheckingInspection
+    def test_validate_string(self, capsys):  # noqa
+        validate_string("qA2")
+        captured = capsys.readouterr()
+        assert captured.out == "True\nTrue\nTrue\nTrue\nTrue\n"
