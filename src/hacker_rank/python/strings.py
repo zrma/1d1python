@@ -86,3 +86,14 @@ def designer_door_mat(n: int, m: int):
 
     for row in output:
         print(''.join(row))
+
+
+def print_formatted(number: int):
+    length = len(str(bin(number))) - 2
+
+    for i in range(1, number + 1):
+        d = str(i).rjust(length)
+        o = str(oct(i))[2:].rjust(length)
+        h = str(hex(i))[2:].upper().rjust(length)
+        b = str(bin(i))[2:].rjust(length)
+        print(f"{d} {o} {h} {b}")
