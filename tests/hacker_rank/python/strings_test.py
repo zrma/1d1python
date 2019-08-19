@@ -279,3 +279,9 @@ j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
         print_rangoli(10)
         captured = capsys.readouterr()
         assert captured.out == expected
+
+    # https://www.hackerrank.com/challenges/capitalize/problem
+    def test_capitalize(self):
+        assert capitalize("chris alan") == "Chris Alan"
+        assert capitalize("hello world lol") == "Hello World Lol"
+        assert capitalize("132 456 Wq m e") == "132 456 Wq M E"

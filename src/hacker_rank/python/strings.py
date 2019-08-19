@@ -1,5 +1,5 @@
 from itertools import product
-from string import ascii_lowercase
+from string import ascii_lowercase, capwords
 from typing import Sequence, List
 from re import findall
 import textwrap
@@ -121,3 +121,7 @@ def print_rangoli(size: int):
 
     for line in output:
         print(''.join(line))
+
+
+def capitalize(s: str) -> str:
+    return capwords(s, " ")
