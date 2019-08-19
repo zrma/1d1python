@@ -1,3 +1,5 @@
+from itertools import product
+from string import ascii_lowercase
 from typing import Sequence, List
 from re import findall
 import textwrap
@@ -97,3 +99,25 @@ def print_formatted(number: int):
         h = str(hex(i))[2:].upper().rjust(length)
         b = str(bin(i))[2:].rjust(length)
         print(f"{d} {o} {h} {b}")
+
+
+# noinspection SpellCheckingInspection
+def print_rangoli(size: int):
+    center_x = (size - 1) * 2
+    center_y = size - 1
+    length = center_x * 2 + 1
+    output: List[List[str]] = [["-" for _ in range(length)] for _ in range(size * 2 - 1)]
+
+    def point(margin: int, c: str):
+        for (pos_x, pos_y) in product(range(-2 * margin, 2 * (margin + 1), 2), range(-margin, margin + 1, 1)):
+            try:
+                if abs(pos_x) // 2 + abs(pos_y) == margin:
+                    output[center_y + pos_y][center_x + pos_x] = c
+            except IndexError:
+                print(f"out : {center_x + pos_x}, {center_y + pos_y}")
+
+    for i in range(size):
+        point(i, ascii_lowercase[i])
+
+    for line in output:
+        print(''.join(line))
