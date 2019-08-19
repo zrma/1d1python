@@ -110,11 +110,8 @@ def print_rangoli(size: int):
 
     def point(margin: int, c: str):
         for (pos_x, pos_y) in product(range(-2 * margin, 2 * (margin + 1), 2), range(-margin, margin + 1, 1)):
-            try:
-                if abs(pos_x) // 2 + abs(pos_y) == margin:
-                    output[center_y + pos_y][center_x + pos_x] = c
-            except IndexError:
-                print(f"out : {center_x + pos_x}, {center_y + pos_y}")
+            if abs(pos_x) // 2 + abs(pos_y) == margin:
+                output[center_y + pos_y][center_x + pos_x] = c
 
     for i in range(size):
         point(i, ascii_lowercase[i])
