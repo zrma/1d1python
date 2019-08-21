@@ -141,13 +141,29 @@ def capitalize(s: str) -> str:
     return capwords(s, " ")
 
 
+# noinspection SpellCheckingInspection
 def minion_game(s: str):
-    # noinspection SpellCheckingInspection
     vowels = 'AEIOU'
     stuart, kevin = 0, 0
 
     for i, c in enumerate(s):
         if c in vowels:
+            # 문제의 그림에 나온 words 출력 순서에 속지 말자
+            #
+            # B          ┬
+            # BA         │
+            # BAN        │   BANANA
+            # BANA       │   ├────┤
+            # BANAN      │   B부터 BANANA까지 6개의 substring 포함
+            # BANANA     ┴
+            #
+            #   N       ┬
+            #   NA      │      NANA
+            #   NAN     │      ├──┤
+            #   NANA    ┴      N부터 NANA까지 4개의 substring 포함
+            #
+            #     N
+            #     NA             N부터 NA까지 2개의 substring 포함
             kevin += len(s) - i
         else:
             stuart += len(s) - i
