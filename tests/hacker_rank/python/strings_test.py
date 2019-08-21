@@ -300,3 +300,10 @@ j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
         minion_game("BANANANAAAS")
         captured = capsys.readouterr()
         assert captured.out == "Draw\n"
+
+    # https://www.hackerrank.com/challenges/merge-the-tools/problem
+    # noinspection SpellCheckingInspection
+    def test_merge_the_tools(self, capsys):  # noqa
+        merge_the_tools("AABCAAADA", 3)
+        captured = capsys.readouterr()
+        assert captured.out == "AB\nCA\nAD\n"

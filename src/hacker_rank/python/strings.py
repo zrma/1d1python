@@ -174,3 +174,14 @@ def minion_game(s: str):
         print(f"Kevin {kevin}")
     else:
         print("Draw")
+
+
+def merge_the_tools(s: str, k: int):
+    for (begin, end) in zip(range(0, len(s), k), range(k, len(s) + 1, k)):
+        result = ""
+        token = s[begin:end]
+        for t in token:
+            if t not in result:
+                result += t
+
+        print(result)
