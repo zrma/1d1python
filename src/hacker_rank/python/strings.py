@@ -139,3 +139,22 @@ def print_rangoli(size: int):
 
 def capitalize(s: str) -> str:
     return capwords(s, " ")
+
+
+def minion_game(s: str):
+    # noinspection SpellCheckingInspection
+    vowels = 'AEIOU'
+    stuart, kevin = 0, 0
+
+    for i, c in enumerate(s):
+        if c in vowels:
+            kevin += len(s) - i
+        else:
+            stuart += len(s) - i
+
+    if stuart > kevin:
+        print(f"Stuart {stuart}")
+    elif stuart < kevin:
+        print(f"Kevin {kevin}")
+    else:
+        print("Draw")
