@@ -285,3 +285,18 @@ j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
         assert capitalize("chris alan") == "Chris Alan"
         assert capitalize("hello world lol") == "Hello World Lol"
         assert capitalize("132 456 Wq m e") == "132 456 Wq M E"
+
+    # https://www.hackerrank.com/challenges/the-minion-game/problem
+    # noinspection SpellCheckingInspection
+    def test_minion_game(self, capsys):  # noqa
+        minion_game("BANANA")
+        captured = capsys.readouterr()
+        assert captured.out == "Stuart 12\n"
+
+        minion_game("BAANANAS")
+        captured = capsys.readouterr()
+        assert captured.out == "Kevin 19\n"
+
+        minion_game("BANANANAAAS")
+        captured = capsys.readouterr()
+        assert captured.out == "Draw\n"
