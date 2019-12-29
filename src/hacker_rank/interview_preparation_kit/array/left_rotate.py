@@ -1,13 +1,6 @@
 from typing import List, Sequence
+from src.hacker_rank.data_structures.arrays import left_rotate
 
 
-def rot_left(a: List[int], d: int) -> Sequence[int]:
-    length = len(a)
-
-    if d < 1 or d % length == 0:
-        return a
-
-    if d > length:
-        d = d % length
-
-    return a[d:] + a[:d]
+def rot_left(arr: List[int], n: int) -> Sequence[int]:
+    return left_rotate.rot_left(arr, n)
