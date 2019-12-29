@@ -108,7 +108,7 @@ def print_rangoli(size: int):
     length = center_x * 2 + 1
     output: List[List[str]] = [["-" for _ in range(length)] for _ in range(size * 2 - 1)]
 
-    def point(margin: int, c: str):
+    def point(c: str, margin: int):
         # >>> [(i, j) for (i, j) in product(range(0, 2, 2),range(0, 1, 1))]
         # [(0, 0)]
         #
@@ -126,12 +126,14 @@ def print_rangoli(size: int):
         #
         # 일반화
         # >>> [(i, j) for (i, j) in product(range(-2k, 2(k+1), 2),range(-k, k+1, 1))]
-        for (pos_x, pos_y) in product(range(-2 * margin, 2 * (margin + 1), 2), range(-margin, margin + 1, 1)):
+        begin = range(-2 * margin, 2 * (margin + 1), 2)
+        end = range(-margin, margin + 1, 1)
+        for (pos_x, pos_y) in product(begin, end):
             if abs(pos_x) // 2 + abs(pos_y) == margin:
                 output[center_y + pos_y][center_x + pos_x] = c
 
     for i in range(size):
-        point(i, ascii_lowercase[i])
+        point(ascii_lowercase[i], i)
 
     for line in output:
         print(''.join(line))
