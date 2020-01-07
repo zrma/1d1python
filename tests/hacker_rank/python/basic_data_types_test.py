@@ -103,4 +103,4 @@ class TestBasicDataTypes:
 
     # https://www.hackerrank.com/challenges/python-tuples/problem
     def test_tuples(self):
-        assert tuples([1, 2]) == 3713081631934410656
+        assert tuples([1, 2]) == -3550055125485641917
