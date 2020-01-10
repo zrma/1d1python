@@ -51,6 +51,10 @@ clean-test:
 lint:
 	$(VENV) ;\
 	flake8 src tests
+	$(VENV) ;\
+	mypy ./src/*
+	$(VENV) ;\
+	mypy ./tests/*
 
 test:
 	$(VENV) ;\
