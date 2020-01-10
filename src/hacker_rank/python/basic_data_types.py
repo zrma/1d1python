@@ -1,5 +1,5 @@
 from itertools import product
-from typing import Sequence, Union, Dict, List
+from typing import Sequence, Union, Dict, List, Tuple, Any
 from copy import deepcopy
 
 
@@ -14,15 +14,15 @@ def list_comprehensions(x: int, y: int, z: int, n: int) -> Sequence[Sequence[int
     ]
 
 
-def nested_lists(arr: Sequence[Union[int, str]]) -> Sequence[str]:
+def nested_lists(arr: List[Union[str, int, float]]) -> Sequence[str]:
     if len(arr) == 0:
         return []
 
-    names = arr[::2]
-    scores = arr[1::2]
-    result = sorted(zip(names, scores), key=lambda x: x[1])
+    names: List[Any] = arr[::2]
+    scores: List[Any] = arr[1::2]
+    result: List[Tuple[str, Union[int, float]]] = sorted(zip(names, scores), key=lambda x: x[1])
 
-    def get_bottom(target: float) -> Sequence[str]:
+    def get_bottom(target: Union[int, float]) -> Sequence[str]:
         lst = []
         while result and result[0][1] == target:
             lst.append(result.pop(0)[0])
