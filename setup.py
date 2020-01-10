@@ -55,6 +55,7 @@ setup(
             'pep8',                 # via flake8
             'mccabe',               # via flake8
             'mock',
+            'mypy',
             'six',                  # via mock
             'pbr',                  # via mock
             'funcsigs',             # via mock

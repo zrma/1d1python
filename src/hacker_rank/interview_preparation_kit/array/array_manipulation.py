@@ -1,11 +1,11 @@
 from sys import maxsize
-from typing import Iterable
+from typing import Iterable, Tuple
 
 INT_MAX = maxsize
 INT_MIN = -maxsize - 1
 
 
-def array_manipulation(n: int, queries: Iterable[Iterable[int]]) -> int:
+def array_manipulation(n: int, queries: Iterable[Tuple[int]]) -> int:
     arr = [0 for _ in range(n + 1)]
     for row in queries:
         begin, end, value = row  # type: int

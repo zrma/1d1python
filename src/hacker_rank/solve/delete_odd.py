@@ -17,13 +17,13 @@ class SinglyLinkedList:
 
         if not self.head:
             self.head = node
-        else:
+        elif self.tail:
             self.tail.next = node
 
         self.tail = node
 
 
-def print_singly_linked_list(node: SinglyLinkedListNode):
+def print_singly_linked_list(node: Union[SinglyLinkedListNode, None]):
     data = ''
 
     while node:
@@ -39,10 +39,10 @@ def print_singly_linked_list(node: SinglyLinkedListNode):
 def delete_odd(list_head: SinglyLinkedListNode):
     new_list = SinglyLinkedList()
 
-    current_node = list_head
+    current_node: Union[SinglyLinkedListNode, None] = list_head
 
     while current_node:
-        current_data = current_node.data
+        current_data: int = current_node.data
         if current_data % 2 == 0:
             new_list.insert_node(current_data)
 

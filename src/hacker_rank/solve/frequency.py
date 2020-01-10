@@ -65,7 +65,7 @@ def parse_token(results: List[int], token_by_paren: str) -> None:
     repeat_num = 0
 
     if repeat:
-        token_by_paren, repeat_num_str = token_by_paren.split('(')  # type: str, str
+        token_by_paren, repeat_num_str = token_by_paren.split('(')
         repeat_num = int(repeat_num_str) - 1
 
     # 큰 수(#)가 포함 된 경우
