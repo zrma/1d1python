@@ -7,4 +7,3 @@ services:
     build:
       context: .
       dockerfile: ./docker/dev/Dockerfile
-
