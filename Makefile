@@ -1,6 +1,6 @@
 VERSION = $(shell gobump show -r)
 CURRENT_REVISION = $(shell git rev-parse --short HEAD)
-BUILD_LDFLAGS = "-X github.com/zrma/tdd.revision=$(CURRENT_REVISION)"
+BUILD_LDFLAGS = "-X github.com/zrma/1d1python.revision=$(CURRENT_REVISION)"
 ifdef update
   u=-u
 endif

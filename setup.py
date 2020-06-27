@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 
 __version__ = '0.0.1'
-name = 'tdd-practice'
+name = '1d1python'
 
 
 def read_long_description(filename="README.md"):
@@ -17,8 +17,8 @@ setup(
     version=__version__,
     author='zrma',
     author_email='bulbitain@gmail.com',
-    url='https://github.com/zrma/tdd',
-    description='python tdd practice',
+    url='https://github.com/zrma/1d1python',
+    description='1 day 1 coding with python',
     packages=find_packages(exclude=['tests', 'tests.*']),
     include_package_data=True,
     package_data={
@@ -26,7 +26,7 @@ setup(
         ],
     },
     license='MIT',
-    keywords='python tdd practice',
+    keywords='1 day 1 coding with python',
     long_description=read_long_description(),
     install_requires=[
     ],
