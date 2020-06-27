@@ -25,7 +25,7 @@ bootstrap:
 	python -m venv env
 	$(VENV) ;\
 	pip install --upgrade setuptools ;\
-	pip install --upgrade "pip>=19" ;\
+	pip install --upgrade "pip>=20" ;\
 	pip install -r requirements.txt ;\
 	pip install -r requirements-test.txt ;\
 
