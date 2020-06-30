@@ -15,3 +15,6 @@
 #### Test
 > $ make bootstrap  
 > $ make test
+
+#### Test on Docker
+> $ ./test.sh
