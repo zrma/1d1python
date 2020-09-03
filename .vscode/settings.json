@@ -1,0 +1,7 @@
+{
+    "python.linting.pylintEnabled": false,
+    "python.linting.banditEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.pythonPath": "/home/codespace/workspace/1d1python/pythonenv3.8/bin/python3"
+}
