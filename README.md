@@ -7,14 +7,28 @@
 
 1 day 1 coding with python
 
-#### Requirement
-> Linux  
-> Python 3.7+  
-> Make  
+## Requirement
 
-#### Test
-> $ make bootstrap  
-> $ make test
+- Linux
+- Python 3.7+
+- Make
 
-#### Test on Docker
-> $ ./test.sh
+## Test
+
+```bash
+$ make bootstrap
+$ make test
+```
+
+## pre-commit
+
+```bash
+$ brew install pre-commit
+$ pre-commit install
+```
+
+## Test on Docker
+
+```bash
+$ ./test.sh
+```
