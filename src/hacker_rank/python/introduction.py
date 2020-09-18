@@ -34,7 +34,7 @@ def loops(n: int) -> None:
 
 
 def print_function(n: int) -> None:
-    print(''.join((str(x) for x in range(1, n + 1))))
+    print("".join((str(x) for x in range(1, n + 1))))
 
 
 def is_leap(year: int) -> bool:

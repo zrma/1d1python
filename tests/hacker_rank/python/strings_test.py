@@ -45,31 +45,31 @@ class TestStrings:
         captured = capsys.readouterr()
 
         expected = """
-    H    
-   HHH   
-  HHHHH  
- HHHHHHH 
+    H
+   HHH
+  HHHHH
+ HHHHHHH
 HHHHHHHHH
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHHHHHHHHHHHHHHHHHHHHHH   
-  HHHHHHHHHHHHHHHHHHHHHHHHH   
-  HHHHHHHHHHHHHHHHHHHHHHHHH   
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-  HHHHH               HHHHH             
-                    HHHHHHHHH 
-                     HHHHHHH  
-                      HHHHH   
-                       HHH    
-                        H     
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHHHHHHHHHHHHHHHHHHHHHH
+  HHHHHHHHHHHHHHHHHHHHHHHHH
+  HHHHHHHHHHHHHHHHHHHHHHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+  HHHHH               HHHHH
+                    HHHHHHHHH
+                     HHHHHHH
+                      HHHHH
+                       HHH
+                        H
 """
 
         assert captured.out == expected

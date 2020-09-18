@@ -8,10 +8,7 @@ def find_the_runner_up_score(arr: Sequence[int]) -> int:
 
 
 def list_comprehensions(x: int, y: int, z: int, n: int) -> Sequence[Sequence[int]]:
-    return [
-        [a, b, c] for (a, b, c) in product(range(x + 1), range(y + 1), range(z + 1))
-        if a + b + c != n
-    ]
+    return [[a, b, c] for (a, b, c) in product(range(x + 1), range(y + 1), range(z + 1)) if a + b + c != n]
 
 
 def nested_lists(arr: List[Union[str, int, float]]) -> Sequence[str]:
@@ -40,7 +37,7 @@ def finding_the_percentage(query_name: str, student_marks: Dict[str, Sequence[fl
     except (KeyError, ZeroDivisionError):
         pass
 
-    return format(avg, '.2f')
+    return format(avg, ".2f")
 
 
 def lists(commands: Sequence[Sequence[Union[str]]]) -> Sequence[Sequence[int]]:
@@ -54,7 +51,7 @@ def lists(commands: Sequence[Sequence[Union[str]]]) -> Sequence[Sequence[int]]:
         "sort": lambda _: stack.sort(),
         "pop": lambda _: stack.pop(-1),
         "reverse": lambda _: stack.reverse(),
-        "print": lambda _: result.append(deepcopy(stack))
+        "print": lambda _: result.append(deepcopy(stack)),
     }
 
     for cmd in commands:
