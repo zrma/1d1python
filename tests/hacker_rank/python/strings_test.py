@@ -44,33 +44,33 @@ class TestStrings:
         text_alignment(5, "H")
         captured = capsys.readouterr()
 
-        expected = """
-    H
-   HHH
-  HHHHH
- HHHHHHH
-HHHHHHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHHHHHHHHHHHHHHHHHHHHHH
-  HHHHHHHHHHHHHHHHHHHHHHHHH
-  HHHHHHHHHHHHHHHHHHHHHHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-  HHHHH               HHHHH
-                    HHHHHHHHH
-                     HHHHHHH
-                      HHHHH
-                       HHH
-                        H
-"""
+        expected = "\n" + \
+                   "    H    \n" + \
+                   "   HHH   \n" + \
+                   "  HHHHH  \n" + \
+                   " HHHHHHH \n" + \
+                   "HHHHHHHHH\n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHHHHHHHHHHHHHHHHHHHHHH   \n" + \
+                   "  HHHHHHHHHHHHHHHHHHHHHHHHH   \n" + \
+                   "  HHHHHHHHHHHHHHHHHHHHHHHHH   \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "  HHHHH               HHHHH             \n" + \
+                   "                    HHHHHHHHH \n" + \
+                   "                     HHHHHHH  \n" + \
+                   "                      HHHHH   \n" + \
+                   "                       HHH    \n" + \
+                   "                        H     \n" + \
+                   ""
 
         assert captured.out == expected
 
