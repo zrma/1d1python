@@ -16,8 +16,7 @@ def mul_mat(mat1: Sequence[Sequence[int]], mat2: Sequence[Sequence[int]]) -> int
     return total
 
 
-def build_mat(down_way: Sequence[bool], up_way: Sequence[bool],
-              row: int, col: int):
+def build_mat(down_way: Sequence[bool], up_way: Sequence[bool], row: int, col: int):
     mat = [[0 for _ in range(row)] for _ in range(col)]
 
     mat[0][0] = 1

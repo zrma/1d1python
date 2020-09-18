@@ -19,4 +19,4 @@ def super_reduced_string(s: str) -> str:
             idx += 1
     if not stack:
         return empty_string
-    return ''.join(stack)
+    return "".join(stack)

@@ -24,14 +24,14 @@ class SinglyLinkedList:
 
 
 def print_singly_linked_list(node: Union[SinglyLinkedListNode, None]):
-    data = ''
+    data = ""
 
     while node:
-        data += (str(node.data))
+        data += str(node.data)
         node = node.next
 
         if node:
-            data += ' '
+            data += " "
 
     return data
 

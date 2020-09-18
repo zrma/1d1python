@@ -13,11 +13,11 @@ def swap_case(s: str) -> str:
             return c.lower()
         return c.upper()
 
-    return ''.join(map(change, s))
+    return "".join(map(change, s))
 
 
 def split_and_join(s: str) -> Sequence[str]:
-    return s.replace(' ', '-')
+    return s.replace(" ", "-")
 
 
 def what_s_your_name(a: str, b: str):
@@ -25,7 +25,7 @@ def what_s_your_name(a: str, b: str):
 
 
 def mutations(s: str, pos: int, c: str) -> str:
-    return "".join((s[:pos], c, s[pos + 1:]))
+    return "".join((s[:pos], c, s[pos + 1 :]))
 
 
 def count_substring(string: str, sub_string: str) -> int:
@@ -61,8 +61,11 @@ def text_alignment(thickness: int, c: str):
 
         # Bottom Cone
     for i in range(thickness):
-        print(((c * (thickness - i - 1)).rjust(thickness) + c +
-               (c * (thickness - i - 1)).ljust(thickness)).rjust(thickness * 6))
+        print(
+            ((c * (thickness - i - 1)).rjust(thickness) + c + (c * (thickness - i - 1)).ljust(thickness)).rjust(
+                thickness * 6
+            )
+        )
 
 
 def wrap(string: str, max_width: int) -> str:
@@ -74,9 +77,9 @@ def designer_door_mat(n: int, m: int):
     output[n // 2] = list("WELCOME".center(m, "-"))
 
     def point(pos_x: int, pos_y: int):
-        output[pos_y][pos_x - 1] = '.'
-        output[pos_y][pos_x] = '|'
-        output[pos_y][pos_x + 1] = '.'
+        output[pos_y][pos_x - 1] = "."
+        output[pos_y][pos_x] = "|"
+        output[pos_y][pos_x + 1] = "."
 
     center = m // 2
     for y in range(n):
@@ -87,7 +90,7 @@ def designer_door_mat(n: int, m: int):
             point(center - offset * 3, y)
 
     for row in output:
-        print(''.join(row))
+        print("".join(row))
 
 
 def print_formatted(number: int):
@@ -136,7 +139,7 @@ def print_rangoli(size: int):
         point(ascii_lowercase[i], i)
 
     for line in output:
-        print(''.join(line))
+        print("".join(line))
 
 
 def capitalize(s: str) -> str:
@@ -145,7 +148,7 @@ def capitalize(s: str) -> str:
 
 # noinspection SpellCheckingInspection
 def minion_game(s: str):
-    vowels = 'AEIOU'
+    vowels = "AEIOU"
     stuart, kevin = 0, 0
 
     for i, c in enumerate(s):

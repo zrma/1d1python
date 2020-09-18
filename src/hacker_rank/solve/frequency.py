@@ -3,10 +3,7 @@
 from typing import List
 
 
-def process_normal(arr: List[int],
-                   tokens: str,
-                   repeat: bool,
-                   repeat_num: int) -> None:
+def process_normal(arr: List[int], tokens: str, repeat: bool, repeat_num: int) -> None:
     last_token: str = str()
 
     # 작은 수 일괄 카운트
@@ -15,20 +12,17 @@ def process_normal(arr: List[int],
         arr[int(token) - 1] += 1
 
     if repeat:
-        assert last_token, 'Repeat is True, but Last Token is None'
+        assert last_token, "Repeat is True, but Last Token is None"
         arr[int(last_token) - 1] += repeat_num
 
 
-def process_big_number(results: List[int],
-                       token_by_paren: str,
-                       repeat: bool,
-                       repeat_num: int) -> None:
-    tokens_by_sharp: List[str] = token_by_paren.split('#')
+def process_big_number(results: List[int], token_by_paren: str, repeat: bool, repeat_num: int) -> None:
+    tokens_by_sharp: List[str] = token_by_paren.split("#")
 
     # 마지막 토큰이 큰 수(#)인가?
-    is_big_last_token = tokens_by_sharp[len(tokens_by_sharp) - 1] == ''
+    is_big_last_token = tokens_by_sharp[len(tokens_by_sharp) - 1] == ""
     if is_big_last_token:
-        tokens_by_sharp.remove('')
+        tokens_by_sharp.remove("")
 
     *tokens_by_sharp, last_token = tokens_by_sharp
 
@@ -51,7 +45,7 @@ def process_big_number(results: List[int],
 
         results[int(last_big_token) - 1] += 1
         if repeat:
-            assert last_big_token, 'Repeat is True, but Last Token is None'
+            assert last_big_token, "Repeat is True, but Last Token is None"
             results[int(last_big_token) - 1] += repeat_num
 
     # 아니라면 일반적인 처리
@@ -61,15 +55,15 @@ def process_big_number(results: List[int],
 
 def parse_token(results: List[int], token_by_paren: str) -> None:
     # 반복 처리 해야 할 경우 맨 마지막 토큰을 해당 횟수만큼 반복하자
-    repeat = '(' in token_by_paren
+    repeat = "(" in token_by_paren
     repeat_num = 0
 
     if repeat:
-        token_by_paren, repeat_num_str = token_by_paren.split('(')
+        token_by_paren, repeat_num_str = token_by_paren.split("(")
         repeat_num = int(repeat_num_str) - 1
 
     # 큰 수(#)가 포함 된 경우
-    exist_big = '#' in token_by_paren
+    exist_big = "#" in token_by_paren
 
     if exist_big:
         process_big_number(results, token_by_paren, repeat, repeat_num)
@@ -82,9 +76,9 @@ def parse_token(results: List[int], token_by_paren: str) -> None:
 def frequency(s: str) -> List[int]:
     results: List[int] = [0 for _ in range(26)]
 
-    tokens_by_paren = s.split(')')
-    if '' in tokens_by_paren:
-        tokens_by_paren.remove('')
+    tokens_by_paren = s.split(")")
+    if "" in tokens_by_paren:
+        tokens_by_paren.remove("")
 
     for token_by_paren in tokens_by_paren:
         parse_token(results, token_by_paren)
