@@ -1,13 +1,17 @@
-from collections import namedtuple
-from typing import Sequence
+from dataclasses import dataclass
+from typing import Iterable, Tuple
 
 from src.hacker_rank.interview_preparation_kit.array.array_manipulation import array_manipulation
-
-Case = namedtuple("TestCase", "n queries expected")
 
 
 # https://www.hackerrank.com/challenges/crush/problem
 def test_array_manipulation():
+    @dataclass
+    class Case:
+        n: int
+        queries: Iterable[Tuple[int, int, int]]
+        expected: int
+
     cases = (
         Case(n=10,
              queries=(
@@ -42,7 +46,5 @@ def test_array_manipulation():
     )
 
     for case in cases:
-        n, queries, expected = case  # type: int, Sequence[Sequence[int]], int
-
-        actual = array_manipulation(n, queries)
+        actual = array_manipulation(case.n, case.queries)
         assert actual == case.expected

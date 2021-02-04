@@ -1,10 +1,6 @@
-from collections import namedtuple
 from functools import cmp_to_key
-from typing import List
 
 from src.hacker_rank.interview_preparation_kit.sorting.comparator import Player
-
-Case = namedtuple("TestCase", "n expected")
 
 
 # https://www.hackerrank.com/challenges/ctci-comparator-sorting/problem

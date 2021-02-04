@@ -1,27 +1,30 @@
-from collections import namedtuple
+from dataclasses import dataclass
 
 from src.hacker_rank.algorithms.strings.super_reduced_string import super_reduced_string
 
-Case = namedtuple("TestCase", "data expected")
-
 
 def test_frequency():
+    @dataclass
+    class Case:
+        data: str
+        expected: str
+
+    empty_string = "Empty String"
     # noinspection SpellCheckingInspection
     cases = (
         Case(data="aaabccddd",  # noqa
              expected="abd"),
         Case(data="aa",  # noqa
-             expected="Empty String"),
+             expected=empty_string),
         Case(data="baab",  # noqa
-             expected="Empty String"),
+             expected=empty_string),
         Case(data="abab",  # noqa
              expected="abab"),
         Case(data="abccba",  # noqa
-             expected="Empty String"),
+             expected=empty_string),
         Case(data="",
-             expected="Empty String"),
+             expected=empty_string),
     )
 
     for case in cases:
-        data, expected = case  # type: str, str
-        assert super_reduced_string(data) == expected
+        assert super_reduced_string(case.data) == case.expected
