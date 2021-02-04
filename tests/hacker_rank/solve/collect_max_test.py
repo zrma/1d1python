@@ -1,11 +1,15 @@
-from collections import namedtuple
+from dataclasses import dataclass
+from typing import Sequence
 
 from src.hacker_rank.solve.collect_max import collect_max, mul_mat
 
-Case = namedtuple("TestCase", "data expected")
-
 
 def test_collect_max():
+    @dataclass
+    class Case:
+        data: Sequence[Sequence[int]]
+        expected: int
+
     cases = (
         Case(data=(
             (0, 1, -1),
@@ -33,6 +37,11 @@ def test_collect_max():
 
 
 def test_mul_mat():
+    @dataclass
+    class Case:
+        data: Sequence[Sequence[Sequence[int]]]
+        expected: int
+
     cases = (
         Case(data=(
             (

@@ -1,13 +1,17 @@
-from collections import namedtuple
-from typing import Sequence
+from dataclasses import dataclass
+from typing import Sequence, Tuple
 
 from src.hacker_rank.data_structures.arrays.dynamic_array import dynamic_array
-
-Case = namedtuple("TestCase", "n queries expected")
 
 
 # https://www.hackerrank.com/challenges/2d-array/problem
 def test_frequency():
+    @dataclass
+    class Case:
+        n: int
+        queries: Sequence[Tuple[int, int, int]]
+        expected: Sequence[int]
+
     cases = (
         Case(n=2,
              queries=(
@@ -22,5 +26,4 @@ def test_frequency():
     )
 
     for case in cases:
-        n, queries, expected = case  # type: int, Sequence[Sequence[int]], int
-        assert dynamic_array(n, queries) == expected
+        assert dynamic_array(case.n, case.queries) == case.expected

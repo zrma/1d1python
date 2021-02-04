@@ -1,13 +1,16 @@
-from collections import namedtuple
-from typing import List
+from dataclasses import dataclass
+from typing import List, Sequence
 
 from src.hacker_rank.interview_preparation_kit.array.left_rotate import rot_left
-
-Case = namedtuple("TestCase", "n expected")
 
 
 # https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem
 def test_frequency():
+    @dataclass
+    class Case:
+        n: int
+        expected: Sequence[int]
+
     arr = [1, 2, 3, 4, 5]
     cases = (
         Case(n=0, expected=[1, 2, 3, 4, 5]),
@@ -20,5 +23,4 @@ def test_frequency():
     )
 
     for case in cases:
-        n, expected = case  # type: int, List[int]
-        assert rot_left(arr, n) == expected
+        assert rot_left(arr, case.n) == case.expected

@@ -1,11 +1,15 @@
-from collections import namedtuple
+from dataclasses import dataclass
 
 from src.hacker_rank.solve.frequency import frequency
 
-Case = namedtuple("TestCase", "data expected desc")
-
 
 def test_frequency():
+    @dataclass
+    class Case:
+        data: str
+        expected: str
+        desc: str
+
     cases = (
         Case(data="1226#24#",
              expected="1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1",

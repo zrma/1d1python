@@ -1,13 +1,17 @@
-from collections import namedtuple
+from dataclasses import dataclass
+from typing import Sequence
 
-from src.hacker_rank.solve.delete_odd import SinglyLinkedList
 from src.hacker_rank.solve.delete_odd import delete_odd
 from src.hacker_rank.solve.delete_odd import print_singly_linked_list
-
-Case = namedtuple("TestCase", "data expected")
+from src.hacker_rank.solve.delete_odd import SinglyLinkedList
 
 
 def test_frequency():
+    @dataclass
+    class Case:
+        data: Sequence[int]
+        expected: str
+
     cases = (
         Case(data=(2, 1, 3, 4, 6),
              expected="2 4 6"),

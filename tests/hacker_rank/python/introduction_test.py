@@ -1,6 +1,5 @@
 from random import randint
-from collections import namedtuple
-
+from dataclasses import dataclass
 from src.hacker_rank.python.introduction import *
 
 
@@ -37,17 +36,22 @@ class TestIntroduction:
     # https://www.hackerrank.com/challenges/py-if-else/problem
     # noinspection SpellCheckingInspection
     def test_if_else(self, capsys):  # noqa
-        case = namedtuple("TestCase", "n expected desc")
+        @dataclass
+        class Case:
+            n: int
+            expected: str
+            desc: str
+
         cases = (
-            case(n=1, expected="Weird", desc="홀수"),
-            case(n=3, expected="Weird", desc="홀수"),
-            case(n=5, expected="Weird", desc="홀수"),
-            case(n=21, expected="Weird", desc="홀수"),
-            case(n=2, expected="Not Weird", desc="2~5"),
-            case(n=4, expected="Not Weird", desc="2~5"),
-            case(n=6, expected="Weird", desc="6~20"),
-            case(n=20, expected="Weird", desc="6~20"),
-            case(n=22, expected="Not Weird", desc="greater than 20"),
+            Case(n=1, expected="Weird", desc="홀수"),
+            Case(n=3, expected="Weird", desc="홀수"),
+            Case(n=5, expected="Weird", desc="홀수"),
+            Case(n=21, expected="Weird", desc="홀수"),
+            Case(n=2, expected="Not Weird", desc="2~5"),
+            Case(n=4, expected="Not Weird", desc="2~5"),
+            Case(n=6, expected="Weird", desc="6~20"),
+            Case(n=20, expected="Weird", desc="6~20"),
+            Case(n=22, expected="Not Weird", desc="greater than 20"),
         )
 
         for case in cases:
