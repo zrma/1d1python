@@ -31,3 +31,9 @@ heraldo 50
 """
     captured = capsys.readouterr()
     assert captured.out == expected
+
+
+def test_player_repr():  # noqa
+    player = Player("test", 123)
+    expected = """test 123"""
+    assert repr(player) == expected
