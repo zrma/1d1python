@@ -23,25 +23,21 @@ jobs:
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - uses: actions/upload-artifact@v2
-        with:
-          name: coverage
-          path: target/coverage/*
       - run: make bootstrap
       - run: make lint
       - run: make test
-#  report:
-#    needs: test
-#    runs-on: ubuntu-latest
-#    name: action report
-#    steps:
-#      - uses: actions/checkout@v2
-#      - uses: actions/download-artifact@v2
-#        with:
-#          name: coverage
-#      - run: bash <(curl -s https://codecov.io/bash) -f codecov.json
-#      - name: Coveralls
-#        uses: coverallsapp/github-action@master
-#        with:
-#          github-token: ${{ secrets.GITHUB_TOKEN }}
-#          path-to-lcov: lcov.info
+
+  report:
+    needs: test
+    runs-on: ubuntu-latest
+    name: action report
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+      - run: make bootstrap
+      - run: make cover
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

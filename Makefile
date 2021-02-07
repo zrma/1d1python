@@ -25,7 +25,7 @@ bootstrap:
 	python -m venv env
 	$(VENV) ;\
 	pip install --upgrade setuptools ;\
-	pip install --upgrade "pip>=20" ;\
+	pip install --upgrade "pip>=21" ;\
 	pip install -r requirements.txt ;\
 	pip install -r requirements-test.txt ;\
 
@@ -50,10 +50,8 @@ clean-test:
 
 lint:
 	$(VENV) ;\
-	flake8 src tests
-	$(VENV) ;\
-	mypy ./src/*
-	$(VENV) ;\
+	flake8 src tests ;\
+	mypy ./src/* ;\
 	mypy ./tests/*
 
 test:
@@ -68,7 +66,7 @@ coverage: test
 	coverage run --source src setup.py test ;\
 	coverage report -m ;\
 	coverage html ;\
-	open htmlcov/index.html ;\
+	open htmlcov/index.html
 
 release: clean
 	fullrelease
@@ -79,8 +77,8 @@ install: clean
 
 cover:
 	$(VENV) ;\
-	coverage run --source=src setup.py test
-	coverage xml -i
-	COVERALLS_TOKEN=${COVERALLS_TOKEN} coveralls --service=travis-ci
-	pytest --cov=src tests/
+	coverage run --source=src setup.py test ;\
+	coverage xml -i ;\
+	coveralls --service=github ;\
+	pytest --cov=src tests/ ;\
 	codecov
