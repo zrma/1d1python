@@ -38,6 +38,7 @@ def test_phone_number_startswith():
 
     cases = (
         Case(phone_book=["119", "97674223", "1195524421"], expected=False),
+        Case(phone_book=["1195524421", "97674223", "119"], expected=False),
         Case(phone_book=["123", "456", "789"], expected=True),
         Case(phone_book=["12", "123", "1235", "567", "88"], expected=False),
     )
