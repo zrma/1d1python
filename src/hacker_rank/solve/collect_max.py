@@ -50,12 +50,10 @@ def collect_max(mat: Sequence[Sequence[int]]):
     col_step = col - 1
     total_step = row_step + col_step
     down_ways = [
-        [True if x in y else False for x in range(total_step)]
-        for y in [x for x in combinations(range(total_step), col_step)]
+        [True if x in y else False for x in range(total_step)] for y in combinations(range(total_step), col_step)
     ]
     up_ways = [
-        [True if x in y else False for x in range(total_step)]
-        for y in [x for x in combinations(range(total_step), col_step)]
+        [True if x in y else False for x in range(total_step)] for y in combinations(range(total_step), col_step)
     ]
 
     highest_score = 0
