@@ -7,7 +7,7 @@ def super_reduced_string(s: str) -> str:
     if not s:
         return empty_string
 
-    stack: List[str] = list()
+    stack: List[str] = []
     idx = -1
 
     for c in s:
