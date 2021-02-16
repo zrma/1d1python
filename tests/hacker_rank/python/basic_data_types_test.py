@@ -1,4 +1,9 @@
-from src.hacker_rank.python.basic_data_types import *
+from src.hacker_rank.python.basic_data_types import find_the_runner_up_score
+from src.hacker_rank.python.basic_data_types import finding_the_percentage
+from src.hacker_rank.python.basic_data_types import list_comprehensions
+from src.hacker_rank.python.basic_data_types import lists
+from src.hacker_rank.python.basic_data_types import nested_lists
+from src.hacker_rank.python.basic_data_types import tuples
 
 
 class TestBasicDataTypes:
