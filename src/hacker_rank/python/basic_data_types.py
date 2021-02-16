@@ -56,7 +56,7 @@ def lists(commands: Sequence[Sequence[Union[str]]]) -> Sequence[Sequence[int]]:
 
     for cmd in commands:
         op_code, *op_land = cmd
-        operators[op_code](list(map(lambda x: int(x), op_land)))
+        operators[op_code](list(map(int, op_land)))
 
     return result
 
