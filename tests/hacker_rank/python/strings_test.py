@@ -1,4 +1,17 @@
-from src.hacker_rank.python.strings import *
+from src.hacker_rank.python.strings import capitalize
+from src.hacker_rank.python.strings import count_substring
+from src.hacker_rank.python.strings import designer_door_mat
+from src.hacker_rank.python.strings import merge_the_tools
+from src.hacker_rank.python.strings import minion_game
+from src.hacker_rank.python.strings import mutations
+from src.hacker_rank.python.strings import print_formatted
+from src.hacker_rank.python.strings import print_rangoli
+from src.hacker_rank.python.strings import split_and_join
+from src.hacker_rank.python.strings import swap_case
+from src.hacker_rank.python.strings import text_alignment
+from src.hacker_rank.python.strings import validate_string
+from src.hacker_rank.python.strings import what_s_your_name
+from src.hacker_rank.python.strings import wrap
 
 
 class TestStrings:
