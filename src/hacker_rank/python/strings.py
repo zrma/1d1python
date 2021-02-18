@@ -1,8 +1,8 @@
-from itertools import product
-from string import ascii_lowercase, capwords
-from typing import Sequence, List
-from re import findall
 import textwrap
+from itertools import product
+from re import findall
+from string import ascii_lowercase, capwords
+from typing import List, Sequence
 
 
 def swap_case(s: str) -> str:
@@ -45,27 +45,30 @@ def text_alignment(thickness: int, c: str):
 
     # Top Cone
     for i in range(thickness):
-        print((c * i).rjust(thickness - 1) + c + (c * i).ljust(thickness - 1))
+        s = (c * i).rjust(thickness - 1) + c + (c * i).ljust(thickness - 1)
+        print(f"{s}.")
 
     # Top Pillars
     for i in range(thickness + 1):
-        print((c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6))
+        s = (c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6)
+        print(f"{s}.")
 
     # Middle Belt
     for i in range((thickness + 1) // 2):
-        print((c * thickness * 5).center(thickness * 6))
+        s = (c * thickness * 5).center(thickness * 6)
+        print(f"{s}.")
 
         # Bottom Pillars
     for i in range(thickness + 1):
-        print((c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6))
+        s = (c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6)
+        print(f"{s}.")
 
         # Bottom Cone
     for i in range(thickness):
-        print(
-            ((c * (thickness - i - 1)).rjust(thickness) + c + (c * (thickness - i - 1)).ljust(thickness)).rjust(
-                thickness * 6
-            )
+        s = ((c * (thickness - i - 1)).rjust(thickness) + c + (c * (thickness - i - 1)).ljust(thickness)).rjust(
+            thickness * 6
         )
+        print(f"{s}.")
 
 
 def wrap(string: str, max_width: int) -> str:
