@@ -1,4 +1,6 @@
-from src.hacker_rank.python.sets import *
+from src.hacker_rank.python.sets import average
+from src.hacker_rank.python.sets import no_idea
+from src.hacker_rank.python.sets import symmetric_difference
 
 
 class TestSets:
