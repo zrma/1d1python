@@ -14,50 +14,55 @@ from src.hacker_rank.python.strings import what_s_your_name
 from src.hacker_rank.python.strings import wrap
 
 
-class TestStrings:
+# noinspection SpellCheckingInspection
+# https://www.hackerrank.com/challenges/swap-case/problem
+def test_swap_case():
+    assert swap_case("Www.HackerRank.com") == "wWW.hACKERrANK.COM"
+    assert swap_case("Pythonist 2") == "pYTHONIST 2"
+    assert swap_case('HackerRank.com presents "Pythonist 2".') \
+           == 'hACKERrANK.COM PRESENTS "pYTHONIST 2".'
+
+
+# https://www.hackerrank.com/challenges/python-string-split-and-join/problem
+def test_split_and_join():
+    assert split_and_join("this is a string") == "this-is-a-string"
+
+
+# https://www.hackerrank.com/challenges/whats-your-name/problem
+# noinspection SpellCheckingInspection
+def test_what_s_your_name(capsys):  # noqa
+    what_s_your_name("Ross", "Taylor")
+    captured = capsys.readouterr()
+    assert captured.out == "Hello Ross Taylor! You just delved into python.\n"
+
+
+# https://www.hackerrank.com/challenges/python-mutations/problem
+def test_mutations():
     # noinspection SpellCheckingInspection
-    # https://www.hackerrank.com/challenges/swap-case/problem
-    def test_swap_case(self):
-        assert swap_case("Www.HackerRank.com") == "wWW.hACKERrANK.COM"
-        assert swap_case("Pythonist 2") == "pYTHONIST 2"
-        assert swap_case('HackerRank.com presents "Pythonist 2".') \
-               == 'hACKERrANK.COM PRESENTS "pYTHONIST 2".'
+    assert mutations("abracadabra", 5, "k") == "abrackdabra"
 
-    # https://www.hackerrank.com/challenges/python-string-split-and-join/problem
-    def test_split_and_join(self):
-        assert split_and_join("this is a string") == "this-is-a-string"
 
-    # https://www.hackerrank.com/challenges/whats-your-name/problem
+# https://www.hackerrank.com/challenges/find-a-string/problem
+def test_count_substring():
     # noinspection SpellCheckingInspection
-    def test_what_s_your_name(self, capsys):  # noqa
-        what_s_your_name("Ross", "Taylor")
-        captured = capsys.readouterr()
-        assert captured.out == "Hello Ross Taylor! You just delved into python.\n"
+    assert count_substring("ABCDCDC", "CDC") == 2
 
-    # https://www.hackerrank.com/challenges/python-mutations/problem
-    def test_mutations(self):
-        # noinspection SpellCheckingInspection
-        assert mutations("abracadabra", 5, "k") == "abrackdabra"
 
-    # https://www.hackerrank.com/challenges/find-a-string/problem
-    def test_count_substring(self):
-        # noinspection SpellCheckingInspection
-        assert count_substring("ABCDCDC", "CDC") == 2
+# https://www.hackerrank.com/challenges/string-validators/problem
+# noinspection SpellCheckingInspection
+def test_validate_string(capsys):  # noqa
+    validate_string("qA2")
+    captured = capsys.readouterr()
+    assert captured.out == "True\nTrue\nTrue\nTrue\nTrue\n"
 
-    # https://www.hackerrank.com/challenges/string-validators/problem
-    # noinspection SpellCheckingInspection
-    def test_validate_string(self, capsys):  # noqa
-        validate_string("qA2")
-        captured = capsys.readouterr()
-        assert captured.out == "True\nTrue\nTrue\nTrue\nTrue\n"
 
-    # https://www.hackerrank.com/challenges/text-alignment/problem
-    # noinspection SpellCheckingInspection
-    def test_text_alignment(self, capsys):  # noqa
-        text_alignment(5, "H")
-        captured = capsys.readouterr()
+# https://www.hackerrank.com/challenges/text-alignment/problem
+# noinspection SpellCheckingInspection
+def test_text_alignment(capsys):  # noqa
+    text_alignment(5, "H")
+    captured = capsys.readouterr()
 
-        expected = """
+    expected = """
     H    .
    HHH   .
   HHHHH  .
@@ -85,24 +90,26 @@ HHHHHHHHH.
                         H     .
 """
 
-        assert captured.out == expected
+    assert captured.out == expected
 
-    # https://www.hackerrank.com/challenges/text-wrap/problem
-    # noinspection SpellCheckingInspection
-    def test_wrap(self):
-        expected = """ABCD
+
+# https://www.hackerrank.com/challenges/text-wrap/problem
+# noinspection SpellCheckingInspection
+def test_wrap():
+    expected = """ABCD
 EFGH
 IJKL
 IMNO
 QRST
 UVWX
 YZ"""
-        assert wrap("ABCDEFGHIJKLIMNOQRSTUVWXYZ", 4) == expected
+    assert wrap("ABCDEFGHIJKLIMNOQRSTUVWXYZ", 4) == expected
 
-    # https://www.hackerrank.com/challenges/designer-door-mat/problem
-    # noinspection SpellCheckingInspection
-    def test_designer_door_mat(self, capsys):  # noqa
-        expected = """---------.|.---------
+
+# https://www.hackerrank.com/challenges/designer-door-mat/problem
+# noinspection SpellCheckingInspection
+def test_designer_door_mat(capsys):  # noqa
+    expected = """---------.|.---------
 ------.|..|..|.------
 ---.|..|..|..|..|.---
 -------WELCOME-------
@@ -110,11 +117,11 @@ YZ"""
 ------.|..|..|.------
 ---------.|.---------
 """
-        designer_door_mat(7, 21)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    designer_door_mat(7, 21)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-        expected = """---------------.|.---------------
+    expected = """---------------.|.---------------
 ------------.|..|..|.------------
 ---------.|..|..|..|..|.---------
 ------.|..|..|..|..|..|..|.------
@@ -126,11 +133,11 @@ YZ"""
 ------------.|..|..|.------------
 ---------------.|.---------------
 """
-        designer_door_mat(11, 33)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    designer_door_mat(11, 33)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-        expected = """------------.|.------------
+    expected = """------------.|.------------
 ---------.|..|..|.---------
 ------.|..|..|..|..|.------
 ---.|..|..|..|..|..|..|.---
@@ -140,14 +147,15 @@ YZ"""
 ---------.|..|..|.---------
 ------------.|.------------
 """
-        designer_door_mat(9, 27)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    designer_door_mat(9, 27)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-    # https://www.hackerrank.com/challenges/python-string-formatting/problem
-    # noinspection SpellCheckingInspection
-    def test_print_formatted(self, capsys):  # noqa
-        expected = """    1     1     1     1
+
+# https://www.hackerrank.com/challenges/python-string-formatting/problem
+# noinspection SpellCheckingInspection
+def test_print_formatted(capsys):  # noqa
+    expected = """    1     1     1     1
     2     2     2    10
     3     3     3    11
     4     4     4   100
@@ -166,11 +174,11 @@ YZ"""
    17    21    11 10001
 """
 
-        print_formatted(17)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    print_formatted(17)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-        expected = """     1      1      1      1
+    expected = """     1      1      1      1
      2      2      2     10
      3      3      3     11
      4      4      4    100
@@ -235,25 +243,26 @@ YZ"""
     63     77     3F 111111
 """
 
-        print_formatted(63)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    print_formatted(63)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-    # https://www.hackerrank.com/challenges/alphabet-rangoli/problem
-    # noinspection SpellCheckingInspection
-    def test_print_rangoli(self, capsys):  # noqa
-        expected = """----c----
+
+# https://www.hackerrank.com/challenges/alphabet-rangoli/problem
+# noinspection SpellCheckingInspection
+def test_print_rangoli(capsys):  # noqa
+    expected = """----c----
 --c-b-c--
 c-b-a-b-c
 --c-b-c--
 ----c----
 """
 
-        print_rangoli(3)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    print_rangoli(3)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-        expected = """--------e--------
+    expected = """--------e--------
 ------e-d-e------
 ----e-d-c-d-e----
 --e-d-c-b-c-d-e--
@@ -264,11 +273,11 @@ e-d-c-b-a-b-c-d-e
 --------e--------
 """
 
-        print_rangoli(5)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    print_rangoli(5)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-        expected = """------------------j------------------
+    expected = """------------------j------------------
 ----------------j-i-j----------------
 --------------j-i-h-i-j--------------
 ------------j-i-h-g-h-i-j------------
@@ -289,34 +298,37 @@ j-i-h-g-f-e-d-c-b-a-b-c-d-e-f-g-h-i-j
 ------------------j------------------
 """
 
-        print_rangoli(10)
-        captured = capsys.readouterr()
-        assert captured.out == expected
+    print_rangoli(10)
+    captured = capsys.readouterr()
+    assert captured.out == expected
 
-    # https://www.hackerrank.com/challenges/capitalize/problem
-    def test_capitalize(self):
-        assert capitalize("chris alan") == "Chris Alan"
-        assert capitalize("hello world lol") == "Hello World Lol"
-        assert capitalize("132 456 Wq m e") == "132 456 Wq M E"
 
-    # https://www.hackerrank.com/challenges/the-minion-game/problem
-    # noinspection SpellCheckingInspection
-    def test_minion_game(self, capsys):  # noqa
-        minion_game("BANANA")
-        captured = capsys.readouterr()
-        assert captured.out == "Stuart 12\n"
+# https://www.hackerrank.com/challenges/capitalize/problem
+def test_capitalize():
+    assert capitalize("chris alan") == "Chris Alan"
+    assert capitalize("hello world lol") == "Hello World Lol"
+    assert capitalize("132 456 Wq m e") == "132 456 Wq M E"
 
-        minion_game("BAANANAS")
-        captured = capsys.readouterr()
-        assert captured.out == "Kevin 19\n"
 
-        minion_game("BANANANAAAS")
-        captured = capsys.readouterr()
-        assert captured.out == "Draw\n"
+# https://www.hackerrank.com/challenges/the-minion-game/problem
+# noinspection SpellCheckingInspection
+def test_minion_game(capsys):  # noqa
+    minion_game("BANANA")
+    captured = capsys.readouterr()
+    assert captured.out == "Stuart 12\n"
 
-    # https://www.hackerrank.com/challenges/merge-the-tools/problem
-    # noinspection SpellCheckingInspection
-    def test_merge_the_tools(self, capsys):  # noqa
-        merge_the_tools("AABCAAADA", 3)
-        captured = capsys.readouterr()
-        assert captured.out == "AB\nCA\nAD\n"
+    minion_game("BAANANAS")
+    captured = capsys.readouterr()
+    assert captured.out == "Kevin 19\n"
+
+    minion_game("BANANANAAAS")
+    captured = capsys.readouterr()
+    assert captured.out == "Draw\n"
+
+
+# https://www.hackerrank.com/challenges/merge-the-tools/problem
+# noinspection SpellCheckingInspection
+def test_merge_the_tools(capsys):  # noqa
+    merge_the_tools("AABCAAADA", 3)
+    captured = capsys.readouterr()
+    assert captured.out == "AB\nCA\nAD\n"
