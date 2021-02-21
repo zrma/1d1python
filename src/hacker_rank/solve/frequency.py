@@ -20,7 +20,7 @@ def process_big_number(results: List[int], token_by_paren: str, repeat: bool, re
     tokens_by_sharp: List[str] = token_by_paren.split("#")
 
     # 마지막 토큰이 큰 수(#)인가?
-    is_big_last_token = tokens_by_sharp[len(tokens_by_sharp) - 1] == ""
+    is_big_last_token = tokens_by_sharp[-1] == ""
     if is_big_last_token:
         tokens_by_sharp.remove("")
 
