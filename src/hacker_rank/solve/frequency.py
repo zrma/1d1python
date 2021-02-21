@@ -16,7 +16,9 @@ def process_normal(arr: List[int], tokens: str, repeat: bool, repeat_num: int) -
         arr[int(last_token) - 1] += repeat_num
 
 
-def process_big_number(results: List[int], token_by_paren: str, repeat: bool, repeat_num: int) -> None:
+def process_big_number(
+    results: List[int], token_by_paren: str, repeat: bool, repeat_num: int
+) -> None:
     tokens_by_sharp: List[str] = token_by_paren.split("#")
 
     # 마지막 토큰이 큰 수(#)인가?
