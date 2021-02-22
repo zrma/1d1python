@@ -45,12 +45,19 @@ def text_alignment(thickness: int, c: str):
 
     # Top Cone
     for i in range(thickness):
-        s = (c * i).rjust(thickness - 1) + c + (c * i).ljust(thickness - 1)
+        left_margin = (c * i).rjust(thickness - 1)
+        middle = c
+        right_margin = (c * i).ljust(thickness - 1)
+
+        s = left_margin + middle + right_margin
         print(f"{s}.")
 
     # Top Pillars
     for i in range(thickness + 1):
-        s = (c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6)
+        left_pillar = (c * thickness).center(thickness * 2)
+        right_pillar = (c * thickness).center(thickness * 6)
+
+        s = left_pillar + right_pillar
         print(f"{s}.")
 
     # Middle Belt
@@ -60,14 +67,19 @@ def text_alignment(thickness: int, c: str):
 
         # Bottom Pillars
     for i in range(thickness + 1):
-        s = (c * thickness).center(thickness * 2) + (c * thickness).center(thickness * 6)
+        left_pillar = (c * thickness).center(thickness * 2)
+        right_pillar = (c * thickness).center(thickness * 6)
+
+        s = left_pillar + right_pillar
         print(f"{s}.")
 
         # Bottom Cone
     for i in range(thickness):
-        s = ((c * (thickness - i - 1)).rjust(thickness) + c + (c * (thickness - i - 1)).ljust(thickness)).rjust(
-            thickness * 6
-        )
+        left_margin = (c * (thickness - i - 1)).rjust(thickness)
+        middle = c
+        right_margin = (c * (thickness - i - 1)).ljust(thickness)
+
+        s = (left_margin + middle + right_margin).rjust(thickness * 6)
         print(f"{s}.")
 
 
