@@ -1,4 +1,4 @@
-FROM python:3.9.2
+FROM python:buster
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
