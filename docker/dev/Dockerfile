@@ -1,4 +1,4 @@
-FROM python:3.9.6
+FROM python:3.9
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
