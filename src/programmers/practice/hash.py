@@ -3,7 +3,7 @@ from typing import Sequence
 
 
 def incomplete_players(participant: Sequence[str], completion: Sequence[str]) -> str:
-    return ",".join(list((Counter(participant) - Counter(completion)).elements()))
+    return next((Counter(participant) - Counter(completion)).elements())
 
 
 def phone_number_startswith(phone_book: Sequence[str]) -> bool:
