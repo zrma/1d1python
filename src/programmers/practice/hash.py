@@ -7,9 +7,8 @@ def incomplete_players(participant: Sequence[str], completion: Sequence[str]) ->
 
 
 def phone_number_startswith(phone_book: Sequence[str]) -> bool:
-    for idx, elem in enumerate(phone_book):
-        if any(x.startswith(elem) for x in phone_book[:idx]):
-            return False
-        if any(x.startswith(elem) for x in phone_book[idx + 1 :]):
+    phone_book = sorted(phone_book)
+    for first, second in zip(phone_book, phone_book[1:]):
+        if second.startswith(first):
             return False
     return True
