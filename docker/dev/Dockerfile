@@ -1,4 +1,4 @@
-FROM python:3.13.0a4
+FROM python:3.13.0b2
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
