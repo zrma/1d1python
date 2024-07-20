@@ -5,38 +5,24 @@ ifdef update
   u=-u
 endif
 
-VENV ?= . env/bin/activate
-
-
-.PHONY: help bootstrap clean lint test coverage docs release install jenkins
+.PHONY: help init sync sync-dev clean ruff coverage cover
 
 help:
 	@echo "clean - remove all build, test, coverage and Python artifacts"
-	@echo "clean-build - remove build artifacts"
-	@echo "clean-pyc - remove Python file artifacts"
-	@echo "clean-test - remove test and coverage artifacts"
-	@echo "lint - check style with flake8"
+	@echo "ruff - check style and formatting"
 	@echo "test - run tests quickly with the default Python"
 	@echo "coverage - check code coverage quickly with the default Python"
-	@echo "release - package and upload a release"
-	@echo "install - install the package to the active Python's site-packages"
 
-bootstrap:
-	python -m venv env
-	$(VENV) ;\
-	pip install --upgrade setuptools ;\
-	pip install --upgrade "pip>=21" ;\
-	pip install -r requirements.txt ;\
-	pip install -r requirements-test.txt ;\
+init: sync-dev
+	rye run pre-commit install
 
-clean: clean-build clean-pyc clean-test
+sync:
+	rye sync --no-lock --no-dev
 
-clean-build:
-	rm -fr build/
-	rm -fr dist/
-	rm -fr .eggs/
-	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -fr {} +
+sync-dev:
+	rye sync --no-lock
+
+clean: clean-pyc clean-test
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
@@ -48,37 +34,24 @@ clean-test:
 	rm -fr .coverage
 	rm -fr htmlcov/
 
+ruff:
+	rye check --fix
+
 lint:
-	$(VENV) ;\
-	flake8 src tests ;\
-	mypy ./src/* ;\
-	mypy ./tests/*
+	rye run pre-commit run --all-files
 
 test:
-	$(VENV) ;\
-	python setup.py test $(TEST_ARGS)
-	make clean
-
-jenkins: test
+	rye run pytest
 
 coverage: test
-	$(VENV) ;\
-	coverage run --source src setup.py test ;\
-	coverage report -m ;\
-	coverage html ;\
+	rye run coverage run -m pytest ;\
+	rye run coverage report -m ;\
+	rye run coverage html ;\
 	open htmlcov/index.html
 
-release: clean
-	fullrelease
-
-install: clean
-	$(VENV) ;\
-	python setup.py install
-
 cover:
-	$(VENV) ;\
-	coverage run --source=src setup.py test ;\
-	coverage xml -i ;\
-	coveralls --service=github ;\
-	pytest --cov=src tests/ ;\
-	codecov
+	rye run coverage run -m pytest ;\
+	rye run coverage xml -i ;\
+	rye run coveralls --service=github ;\
+	rye run pytest --cov=src tests/ ;\
+	rye run codecov

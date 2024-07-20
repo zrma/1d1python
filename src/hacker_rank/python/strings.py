@@ -2,7 +2,7 @@ import textwrap
 from itertools import product
 from re import findall
 from string import ascii_lowercase, capwords
-from typing import List, Sequence
+from typing import Sequence
 
 
 def swap_case(s: str) -> str:
@@ -20,8 +20,8 @@ def split_and_join(s: str) -> Sequence[str]:
     return s.replace(" ", "-")
 
 
-def what_s_your_name(a: str, b: str):
-    print(f"Hello {a} {b}! You just delved into python.")
+def what_s_your_name(first: str, last: str) -> None:
+    print(f"Hello {first} {last}! You just delved into python.")
 
 
 def mutations(s: str, pos: int, c: str) -> str:
@@ -32,7 +32,7 @@ def count_substring(string: str, sub_string: str) -> int:
     return len(findall(f"(?={sub_string})", string))
 
 
-def validate_string(s: str):
+def validate_string(s: str) -> None:
     print(any((x for x in s if x.isalnum())))
     print(any((x for x in s if x.isalpha())))
     print(any((x for x in s if x.isdigit())))
@@ -40,7 +40,7 @@ def validate_string(s: str):
     print(any((x for x in s if x.isupper())))
 
 
-def text_alignment(thickness: int, c: str):
+def text_alignment(thickness: int, c: str) -> None:
     print()
 
     # Top Cone
@@ -87,11 +87,11 @@ def wrap(string: str, max_width: int) -> str:
     return "\n".join(textwrap.wrap(string, max_width))
 
 
-def designer_door_mat(n: int, m: int):
-    output: List[List[str]] = [["-" for _ in range(m)] for _ in range(n)]
+def designer_door_mat(n: int, m: int) -> None:
+    output: list[list[str]] = [["-" for _ in range(m)] for _ in range(n)]
     output[n // 2] = list("WELCOME".center(m, "-"))
 
-    def point(pos_x: int, pos_y: int):
+    def point(pos_x: int, pos_y: int) -> None:
         output[pos_y][pos_x - 1] = "."
         output[pos_y][pos_x] = "|"
         output[pos_y][pos_x + 1] = "."
@@ -108,7 +108,7 @@ def designer_door_mat(n: int, m: int):
         print("".join(row))
 
 
-def print_formatted(number: int):
+def print_formatted(number: int) -> None:
     length = len(str(bin(number))) - 2
 
     for i in range(1, number + 1):
@@ -119,14 +119,13 @@ def print_formatted(number: int):
         print(f"{d} {o} {h} {b}")
 
 
-# noinspection SpellCheckingInspection
-def print_rangoli(size: int):
+def print_pattern(size: int) -> None:
     center_x = (size - 1) * 2
     center_y = size - 1
     length = center_x * 2 + 1
-    output: List[List[str]] = [["-" for _ in range(length)] for _ in range(size * 2 - 1)]
+    output: list[list[str]] = [["-" for _ in range(length)] for _ in range(size * 2 - 1)]
 
-    def point(c: str, margin: int):
+    def point(c: str, margin: int) -> None:
         # >>> [(i, j) for (i, j) in product(range(0, 2, 2),range(0, 1, 1))]
         # [(0, 0)]
         #
@@ -146,7 +145,7 @@ def print_rangoli(size: int):
         # >>> [(i, j) for (i, j) in product(range(-2k, 2(k+1), 2),range(-k, k+1, 1))]
         begin = range(-2 * margin, 2 * (margin + 1), 2)
         end = range(-margin, margin + 1, 1)
-        for (pos_x, pos_y) in product(begin, end):
+        for pos_x, pos_y in product(begin, end):
             if abs(pos_x) // 2 + abs(pos_y) == margin:
                 output[center_y + pos_y][center_x + pos_x] = c
 
@@ -161,12 +160,12 @@ def capitalize(s: str) -> str:
     return capwords(s, " ")
 
 
-# noinspection SpellCheckingInspection
-def minion_game(s: str):
+def minion_game(s: str) -> None:
     vowels = "AEIOU"
     stuart, kevin = 0, 0
 
     for i, c in enumerate(s):
+        # noinspection SpellCheckingInspection
         if c in vowels:
             # 문제의 그림에 나온 words 출력 순서에 속지 말자
             #
@@ -196,8 +195,8 @@ def minion_game(s: str):
         print("Draw")
 
 
-def merge_the_tools(s: str, k: int):
-    for (begin, end) in zip(range(0, len(s), k), range(k, len(s) + 1, k)):
+def merge_the_tools(s: str, k: int) -> None:
+    for begin, end in zip(range(0, len(s), k), range(k, len(s) + 1, k)):
         result = ""
         token = s[begin:end]
         for t in token:

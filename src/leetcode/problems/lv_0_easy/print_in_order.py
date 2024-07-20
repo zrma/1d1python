@@ -1,11 +1,13 @@
 from threading import Event
 from typing import Callable
 
+import attrs
 
+
+@attrs.frozen(auto_attribs=True, kw_only=True)
 class Foo:
-    def __init__(self):
-        self.e1 = Event()
-        self.e2 = Event()
+    e1: Event = Event()
+    e2: Event = Event()
 
     def first(self, print_first: Callable[[], None]) -> None:
         # printFirst() outputs "first". Do not change or remove this line.

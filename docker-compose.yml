@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.7'
 
 services:
   1d1python-dev:
@@ -6,4 +6,4 @@ services:
     container_name: 1d1python-dev
     build:
       context: .
-      dockerfile: ./docker/dev/Dockerfile
+      dockerfile: ./docker/dev.Dockerfile

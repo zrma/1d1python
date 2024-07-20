@@ -6,11 +6,11 @@ def average(arr: Sequence[int]) -> float:
     return sum(s) / len(s)
 
 
-def symmetric_difference(s1: set, s2: set) -> list:
+def symmetric_difference(s1: set[int], s2: set[int]) -> list[int]:
     return sorted(s1.symmetric_difference(s2))
 
 
-def no_idea(arr: Sequence[int], s1: set, s2: set) -> int:
+def no_idea(arr: Sequence[int], s1: set[int], s2: set[int]) -> int:
     s1_1 = s1 - s2
     s2_1 = s2 - s1
 

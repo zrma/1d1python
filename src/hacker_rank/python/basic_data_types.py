@@ -1,6 +1,6 @@
-from itertools import product
-from typing import Sequence, Union, Dict, List, Tuple, Any
 from copy import deepcopy
+from itertools import product
+from typing import Any, Callable, Sequence, Tuple
 
 
 def find_the_runner_up_score(arr: Sequence[int]) -> int:
@@ -11,15 +11,15 @@ def list_comprehensions(x: int, y: int, z: int, n: int) -> Sequence[Sequence[int
     return [[a, b, c] for (a, b, c) in product(range(x + 1), range(y + 1), range(z + 1)) if a + b + c != n]
 
 
-def nested_lists(arr: List[Union[str, int, float]]) -> Sequence[str]:
+def nested_lists(arr: list[str | int | float]) -> Sequence[str]:
     if len(arr) == 0:
         return []
 
-    names: List[Any] = arr[::2]
-    scores: List[Any] = arr[1::2]
-    result: List[Tuple[str, Union[int, float]]] = sorted(zip(names, scores), key=lambda x: x[1])
+    names: list[Any] = arr[::2]
+    scores: list[Any] = arr[1::2]
+    result: list[Tuple[str, int | float]] = sorted(zip(names, scores), key=lambda x: x[1])
 
-    def get_bottom(target: Union[int, float]) -> Sequence[str]:
+    def get_bottom(target: int | float) -> Sequence[str]:
         lst = []
         while result and result[0][1] == target:
             lst.append(result.pop(0)[0])
@@ -29,7 +29,7 @@ def nested_lists(arr: List[Union[str, int, float]]) -> Sequence[str]:
     return sorted(get_bottom(result[0][1]))
 
 
-def finding_the_percentage(query_name: str, student_marks: Dict[str, Sequence[float]]) -> str:
+def finding_the_percentage(query_name: str, student_marks: dict[str, Sequence[float]]) -> str:
     avg: float = 0
     try:
         arr = student_marks[query_name]
@@ -40,11 +40,11 @@ def finding_the_percentage(query_name: str, student_marks: Dict[str, Sequence[fl
     return format(avg, ".2f")
 
 
-def lists(commands: Sequence[Sequence[Union[str]]]) -> Sequence[Sequence[int]]:
-    stack: List[int] = []
-    result: List[Sequence[int]] = []
+def lists(commands: Sequence[Sequence[str]]) -> Sequence[Sequence[int]]:
+    stack: list[int] = []
+    result: list[Sequence[int]] = []
 
-    operators = {
+    operators: dict[str, Callable[[list[int]], int | None]] = {
         "insert": lambda x: stack.insert(x[0], x[1]),
         "remove": lambda x: stack.remove(x[0]),
         "append": lambda x: stack.append(x[0]),

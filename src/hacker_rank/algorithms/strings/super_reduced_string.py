@@ -1,13 +1,10 @@
-from typing import List
-
-
 def super_reduced_string(s: str) -> str:
     empty_string = "Empty String"
 
     if not s:
         return empty_string
 
-    stack: List[str] = []
+    stack: list[str] = []
     idx = -1
 
     for c in s:

@@ -12,26 +12,41 @@
 
 ## Requirement
 
-- Linux
-- Python 3.10+
-- Make
+- conda 23.11+
+- python 3.12+
+- make 3.81+
+- rye (https://rye.astral.sh)
 
-## Test
 
-```bash
-$ make bootstrap
-$ make test
+## Prepare
+
+```shell
+conda create -n 1d1py python=3.12
+conda activate 1d1py
+curl -sSf https://rye.astral.sh/get | bash
 ```
 
 ## pre-commit
 
-```bash
-$ brew install pre-commit
-$ pre-commit install
+```shell
+make init
+```
+
+### Dependency
+
+```shell
+make sync-dev
+```
+
+## Test
+
+```shell
+make sync-dev
+make test
 ```
 
 ## Test on Docker
 
-```bash
-$ ./test.sh
+```shell
+./test.sh
 ```

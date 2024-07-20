@@ -1,0 +1,58 @@
+[project]
+name = "1d1python"
+version = "0.1.0"
+description = "1 day 1 coding with python"
+authors = [
+    { name = "zrma", email = "zrma@1day1coding.com" }
+]
+dependencies = [
+    "attrs>=23.2.0",
+    "pydantic>=2.8.2",
+    "numpy>=2.0.0",
+    "pandas>=2.2.2",
+    "pandera>=0.20.3",
+]
+requires-python = ">= 3.12"
+license = "MIT"
+homepage = "https://github.com/zrma/1d1python"
+keywords = ["1 day 1 coding with python"]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+virtual = true
+dev-dependencies = [
+    "ruff",
+    "pre-commit",
+    "mypy",
+    "types-attrs",
+    "pytest>=8.2.2",
+    "codecov",
+    "coveralls",
+    "coverage",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/_1d1python"]
+
+
+[tool.black]
+line-length = 120
+target-version = ['py312']
+
+[tool.isort]
+profile = "black"
+line_length = 120
+
+[tool.flake8]
+line_length = 120
+
+[tool.ruff]
+line-length = 120

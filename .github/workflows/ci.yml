@@ -16,15 +16,18 @@ jobs:
     runs-on: ubuntu-latest
     name: action test
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - run: make bootstrap
-      - run: make lint
+      - uses: eifinger/setup-rye@v4
+        with:
+          version: '0.36.0'
+      - run: make sync-dev
+      - run: make ruff
       - run: make test
 
   report:
@@ -32,12 +35,15 @@ jobs:
     runs-on: ubuntu-latest
     name: action report
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
           architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - run: make bootstrap
+      - uses: eifinger/setup-rye@v4
+        with:
+          version: '0.36.0'
+      - run: make sync-dev
       - run: make cover
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

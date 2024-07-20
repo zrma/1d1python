@@ -1,22 +1,27 @@
 from threading import Thread
 
+from pytest import CaptureFixture
+
 from src.leetcode.problems.lv_0_easy.print_in_order import Foo
 
 
-def print_first(f: Foo):
+def print_first(f: Foo) -> None:
     f.first(lambda: print("first", end=""))
 
 
-def print_second(f: Foo):
+def print_second(f: Foo) -> None:
     f.second(lambda: print("second", end=""))
 
 
-def print_third(f: Foo):
+def print_third(f: Foo) -> None:
     f.third(lambda: print("third", end=""))
 
 
-# https://leetcode.com/problems/print-in-order/
-def test_concurrent(capsys):  # noqa
+def test_concurrent(capsys: CaptureFixture[str]) -> None:
+    """
+    https://leetcode.com/problems/print-in-order/
+    1114. Print in Order
+    """
     f = Foo()
 
     tasks = [
@@ -32,7 +37,6 @@ def test_concurrent(capsys):  # noqa
         task.join()
 
     # noinspection SpellCheckingInspection
-    expected = "firstsecondthird"
-
-    captured = capsys.readouterr()
-    assert captured.out == expected
+    want = "firstsecondthird"
+    got = capsys.readouterr().out
+    assert got == want
