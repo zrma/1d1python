@@ -1,8 +1,9 @@
+from pytest import CaptureFixture
+
 from src.utils.print import print_test
 
 
-# noinspection SpellCheckingInspection
-def test_print_test(capsys):  # noqa
+def test_print_test(capsys: CaptureFixture[str]) -> None:
     print_test()
     captured = capsys.readouterr()
     assert captured.out == "hello world\n"

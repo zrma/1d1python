@@ -1,20 +1,19 @@
 from __future__ import annotations
 
+import attrs
 
+
+@attrs.frozen(auto_attribs=True, kw_only=True)
 class Player:
-    def __init__(self, name: str, score: int):
-        self.name = name
-        self.score = score
+    name: str
+    score: int
 
-    def __repr__(self):
-        return f"{self.name} {self.score}"
+    @classmethod
+    def from_tuple(cls, t: tuple[str, int]) -> Player:
+        return cls(name=t[0], score=t[1])
 
     @staticmethod
     def comparator(a: Player, b: Player) -> int:
-        def cmp(lhs, rhs) -> int:
-            return (lhs > rhs) - (lhs < rhs)
-
-        cmp1 = cmp(b.score, a.score)
-        if cmp1 == 0:
-            return cmp(a.name, b.name)
-        return cmp1
+        if a.score == b.score:
+            return (a.name > b.name) - (a.name < b.name)
+        return (b.score > a.score) - (b.score < a.score)

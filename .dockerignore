@@ -1,7 +1,9 @@
 .git
 .gitignore
 .idea
-.travis.yml
+.venv
 docker/
 docker-compose.yml
+docker-compose.test.yml
 sonar-project.properties
+test.sh

@@ -14,7 +14,7 @@ def hourglass_sum(arr: Sequence[Sequence[int]]) -> int:
     if col_size < 3:
         return 0
 
-    def calc(_x, _y: int) -> int:
+    def calc(_x: int, _y: int) -> int:
         total = arr[_y - 1][_x - 1] + arr[_y - 1][_x] + arr[_y - 1][_x + 1]
         total += arr[_y][_x]
         total += arr[_y + 1][_x - 1] + arr[_y + 1][_x] + arr[_y + 1][_x + 1]

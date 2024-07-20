@@ -1,9 +1,9 @@
-from typing import Sequence, List, Tuple
+from typing import Sequence, Tuple
 
 
 def dynamic_array(n: int, queries: Sequence[Tuple[int, int, int]]) -> Sequence[int]:
-    result: List[int] = []
-    seq_list: List[List[int]] = [[] for _ in range(n)]
+    result: list[int] = []
+    seq_list: list[list[int]] = [[] for _ in range(n)]
     last_answer = 0
     for query in queries:
         cmd, x, y = query

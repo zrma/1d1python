@@ -30,7 +30,7 @@ def if_else(n: int) -> None:
 
 def loops(n: int) -> None:
     for i in range(n):
-        print(i ** 2)
+        print(i**2)
 
 
 def print_function(n: int) -> None:

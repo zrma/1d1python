@@ -1,7 +1,7 @@
-from typing import List, Sequence
+from typing import Sequence
 
 
-def rot_left(arr: List[int], n: int) -> Sequence[int]:
+def rot_left(arr: list[int], n: int) -> Sequence[int]:
     length = len(arr)
 
     if n < 1 or n % length == 0:
