@@ -45,7 +45,7 @@ mypy-extensions==1.0.0
     # via typing-inspect
 nodeenv==1.9.1
     # via pre-commit
-numpy==2.0.0
+numpy==2.0.1
     # via 1d1python
     # via pandas
     # via pandera
