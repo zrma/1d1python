@@ -27,6 +27,7 @@ managed = true
 virtual = true
 dev-dependencies = [
     "ruff",
+    "ruff-lsp",
     "pre-commit",
     "mypy",
     "types-attrs",
