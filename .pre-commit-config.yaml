@@ -11,6 +11,7 @@ repos:
       - id: mypy
         additional_dependencies:
           - "attrs>=23.2.0"
+          - "cattrs>=23.2.3"
           - "pydantic>=2.8.2"
           - "numpy>=2.0.0"
           - "pandas>=2.2.2"
