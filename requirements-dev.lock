@@ -17,6 +17,7 @@ attrs==23.2.0
     # via cattrs
     # via lsprotocol
 cattrs==23.2.3
+    # via 1d1python
     # via lsprotocol
     # via pygls
 certifi==2024.7.4
@@ -47,7 +48,7 @@ lsprotocol==2023.0.1
     # via ruff-lsp
 multimethod==1.10
     # via pandera
-mypy==1.11.0
+mypy==1.11.1
 mypy-extensions==1.0.0
     # via mypy
     # via typing-inspect

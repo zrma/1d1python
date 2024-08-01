@@ -14,6 +14,9 @@ annotated-types==0.7.0
     # via pydantic
 attrs==23.2.0
     # via 1d1python
+    # via cattrs
+cattrs==23.2.3
+    # via 1d1python
 multimethod==1.10
     # via pandera
 mypy-extensions==1.0.0
