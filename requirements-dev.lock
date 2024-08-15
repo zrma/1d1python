@@ -89,7 +89,7 @@ pyyaml==6.0.2
 requests==2.32.3
     # via codecov
     # via coveralls
-ruff==0.5.7
+ruff==0.6.0
     # via ruff-lsp
 ruff-lsp==0.0.54
 six==1.16.0
