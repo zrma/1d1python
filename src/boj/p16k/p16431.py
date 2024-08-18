@@ -11,7 +11,8 @@ def solve16431(reader: TextIO, writer: TextIO) -> None:
 
     if bessie_dist < daisy_dist:
         writer.write("bessie")
-    elif bessie_dist > daisy_dist:
+        return
+    if bessie_dist > daisy_dist:
         writer.write("daisy")
-    else:
-        writer.write("tie")
+        return
+    writer.write("tie")

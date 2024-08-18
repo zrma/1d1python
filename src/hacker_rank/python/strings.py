@@ -189,10 +189,11 @@ def minion_game(s: str) -> None:
 
     if stuart > kevin:
         print(f"Stuart {stuart}")
-    elif stuart < kevin:
+        return
+    if stuart < kevin:
         print(f"Kevin {kevin}")
-    else:
-        print("Draw")
+        return
+    print("Draw")
 
 
 def merge_the_tools(s: str, k: int) -> None:
