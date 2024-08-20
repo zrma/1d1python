@@ -21,7 +21,7 @@ multimethod==1.10
     # via pandera
 mypy-extensions==1.0.0
     # via typing-inspect
-numpy==2.0.1
+numpy==2.1.0
     # via 1d1python
     # via pandas
     # via pandera

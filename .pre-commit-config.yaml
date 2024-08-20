@@ -18,7 +18,7 @@ repos:
           - "pandera>=0.20.3"
           - "pytest>=8.3.2"
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.5.7
+    rev: v0.6.2
     hooks:
       - id: ruff
         args: [ --fix ]
