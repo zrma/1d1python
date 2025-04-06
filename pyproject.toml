@@ -5,37 +5,32 @@ description = "1 day 1 coding with python"
 authors = [
     { name = "zrma", email = "zrma@1day1coding.com" }
 ]
-dependencies = [
-    "attrs>=24.2.0",
-    "cattrs>=23.2.3",
-    "pydantic>=2.8.2",
-    "numpy>=2.1.0",
-    "pandas>=2.2.2",
-    "pandera>=0.20.3",
-]
 requires-python = ">= 3.12"
 license = "MIT"
 homepage = "https://github.com/zrma/1d1python"
 keywords = ["1 day 1 coding with python"]
+readme = "README.md"
 
+dependencies = [
+    "attrs>=25.3.0",
+    "cattrs>=24.1.3",
+    "pydantic>=2.11.2",
+    "numpy>=2.2.4",
+    "pandas>=2.2.3",
+    "pandera>=0.23.1",
+]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.rye]
-managed = true
-virtual = true
-dev-dependencies = [
-    "ruff",
-    "ruff-lsp",
-    "pre-commit",
-    "mypy",
-    "types-attrs",
-    "pytest>=8.3.2",
-    "codecov",
-    "coveralls",
-    "coverage",
+[dependency-groups]
+dev = [
+    "ruff>=0.11.4",
+    "ruff-lsp>=0.0.62",
+    "pre-commit>=4.2.0",
+    "mypy>=1.15.0",
+    "types-attrs>=19.1.0",
+    "pytest>=8.3.5",
+    "codecov>=2.1.13",
+    "coveralls>=4.0.1",
+    "coverage>=7.8.0",
 ]
 
 [tool.hatch.metadata]
@@ -43,7 +38,6 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/_1d1python"]
-
 
 [tool.black]
 line-length = 120

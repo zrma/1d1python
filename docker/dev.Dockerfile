@@ -13,24 +13,18 @@ RUN \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-ARG USERNAME=ryeuser
-RUN useradd ${USERNAME} --create-home
-USER ${USERNAME}
+WORKDIR /app
 
-WORKDIR /home/${USERNAME}/app
+COPY pyproject.toml pyproject.toml
+COPY uv.lock uv.lock
 
-ENV RYE_HOME /home/${USERNAME}/.rye
-ENV PATH ${RYE_HOME}/shims:${PATH}
+ENV UV_PROJECT_ENVIRONMENT=/usr/local
 
-RUN curl -sSf https://rye.astral.sh/get | RYE_NO_AUTO_INSTALL=1 RYE_INSTALL_OPTION="--yes" bash && \
-    rye config --set-bool behavior.global-python=true
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install --no-cache-dir uv==0.6.13 \
+    && uv sync --no-dev --locked
 
-
-COPY pyproject.toml ./
-COPY requirements.lock ./
-COPY Makefile ./
-
-RUN make sync
+COPY Makefile Makefile
 
 RUN mkdir -p src
 COPY src ./src

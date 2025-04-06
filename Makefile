@@ -5,22 +5,23 @@ ifdef update
   u=-u
 endif
 
-.PHONY: help init sync sync-dev clean ruff coverage cover
+PYTHON_VERSION = 3.12
+
+.PHONY: help init sync sync-dev clean ruff coverage cover lock lock-dev venv direnv
 
 help:
 	@echo "clean - remove all build, test, coverage and Python artifacts"
 	@echo "ruff - check style and formatting"
 	@echo "test - run tests quickly with the default Python"
 	@echo "coverage - check code coverage quickly with the default Python"
+	@echo "direnv - setup direnv for automatic virtual environment activation"
 
-init: sync-dev
-	rye run pre-commit install
-
-sync:
-	rye sync --no-lock --no-dev
-
-sync-dev:
-	rye sync --no-lock
+direnv:
+	@echo "#!/bin/bash" > .envrc
+	@echo "export VIRTUAL_ENV=\"./.venv\"" >> .envrc
+	@echo "layout python" >> .envrc
+	@direnv allow
+	@echo "direnv setup complete. Environment will be automatically activated when entering this directory."
 
 clean: clean-pyc clean-test
 
@@ -35,23 +36,23 @@ clean-test:
 	rm -fr htmlcov/
 
 ruff:
-	rye check --fix
+	uv run ruff check --fix .
 
 lint:
-	rye run pre-commit run --all-files
+	uv run pre-commit run --all-files
 
 test:
-	rye run pytest
+	uv run pytest
 
 coverage: test
-	rye run coverage run -m pytest ;\
-	rye run coverage report -m ;\
-	rye run coverage html ;\
+	uv run coverage run -m pytest ;\
+	uv run coverage report -m ;\
+	uv run coverage html ;\
 	open htmlcov/index.html
 
 cover:
-	rye run coverage run -m pytest ;\
-	rye run coverage xml -i ;\
-	rye run coveralls --service=github ;\
-	rye run pytest --cov=src tests/ ;\
-	rye run codecov
+	uv run coverage run -m pytest ;\
+	uv run coverage xml -i ;\
+	uv run coveralls --service=github ;\
+	uv run pytest --cov=src tests/ ;\
+	uv run codecov

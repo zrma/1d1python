@@ -21,14 +21,18 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - uses: eifinger/setup-rye@v4
+          python-version: '3.12'
+          architecture: 'x64'
+      - uses: astral-sh/setup-uv@v5
         with:
-          version: '0.36.0'
-      - run: make sync-dev
-      - run: make ruff
-      - run: make test
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+      - name: Setup and test
+        run: |
+          uv sync
+          source .venv/bin/activate
+          make ruff
+          make test
 
   report:
     needs: test
@@ -38,13 +42,17 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.x' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-      - uses: eifinger/setup-rye@v4
+          python-version: '3.12'
+          architecture: 'x64'
+      - uses: astral-sh/setup-uv@v5
         with:
-          version: '0.36.0'
-      - run: make sync-dev
-      - run: make cover
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
+      - name: Setup and report
+        run: |
+          uv sync
+          source .venv/bin/activate
+          make cover
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: SonarCloud Scan

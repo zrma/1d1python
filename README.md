@@ -10,39 +10,27 @@
 
 1 day 1 coding with python
 
-## Requirement
+## Requirements
 
-- conda 23.11+
-- python 3.12+
-- make 3.81+
-- rye (https://rye.astral.sh)
+- uv
+- direnv
 
-
-## Prepare
+## 설치 및 설정
 
 ```shell
-conda create -n 1d1py python=3.12
-conda activate 1d1py
-curl -sSf https://rye.astral.sh/get | bash
-```
+# uv 설치
+$ curl -LsSf https://astral.sh/uv/0.6.13/install.sh | sh
 
-## pre-commit
+# direnv 설치
+$ curl -sfL https://direnv.net/install.sh | bash
+$ direnv allow
+$ echo "direnv 설정이 완료되었습니다. 이 디렉토리에 진입하면 환경이 자동으로 활성화됩니다."
 
-```shell
-make init
-```
+# 개발 환경 설정
+$ uv sync
 
-### Dependency
-
-```shell
-make sync-dev
-```
-
-## Test
-
-```shell
-make sync-dev
-make test
+# pre-commit 설치
+$ pre-commit install
 ```
 
 ## Test on Docker
