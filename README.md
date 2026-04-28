@@ -19,7 +19,7 @@
 
 ```shell
 # uv 설치
-$ curl -LsSf https://astral.sh/uv/0.6.13/install.sh | sh
+$ curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # direnv 설치
 $ curl -sfL https://direnv.net/install.sh | bash
@@ -30,7 +30,7 @@ $ echo "direnv 설정이 완료되었습니다. 이 디렉토리에 진입하면
 $ uv sync
 
 # pre-commit 설치
-$ pre-commit install
+$ uv run pre-commit install
 ```
 
 ## Test on Docker
