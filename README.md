@@ -37,3 +37,17 @@ $ uv run pre-commit install
 ```shell
 ./test.sh
 ```
+
+## 의존성 보안 검사
+
+```sh
+scripts/audit-dependencies.sh
+```
+
+`uv.lock`에서 runtime/dev 전체를 해시와 함께 export하고, 고정된 pip-audit로
+검사한다. 검사를 위해 의존성을 다시 선택하거나 프로젝트를 설치하지 않는다.
+신규 취약점, 조회 실패 또는 검사할 수 없는 패키지는 실패로 처리한다.
+현재 등록한 취약점 예외는 없다.
+
+공개 저장소의 `Dependency security` workflow는 lockfile·설정 변경과 매주
+정기 실행에서 같은 검사를 수행한다. job은 공개 저장소에서만 실행하도록 제한한다.

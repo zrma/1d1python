@@ -1,0 +1,39 @@
+name: Dependency security
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - pyproject.toml
+      - uv.lock
+      - scripts/audit-dependencies.sh
+      - .github/workflows/dependency-security.yml
+  pull_request:
+    paths:
+      - pyproject.toml
+      - uv.lock
+      - scripts/audit-dependencies.sh
+      - .github/workflows/dependency-security.yml
+  schedule:
+    - cron: '37 3 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependency-security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    if: github.event.repository.private == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.0
+      - uses: astral-sh/setup-uv@v8.3.2
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: scripts/audit-dependencies.sh
